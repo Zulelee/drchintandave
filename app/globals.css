@@ -3,14 +3,49 @@
 @tailwind utilities;
 
 /* Custom font family classes */
-.font-space-grotesk {
-  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+.font-helvetica {
+  font-family: Helvetica, "Helvetica Neue", Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Dr. Dave's Brand Color Palette - Extracted from Original Site */
+:root {
+  /* Primary Brand Colors from Original Site */
+  --dave-primary-blue: #4A90E2;
+  --dave-deep-purple: #6B46C1;
+  --dave-light-purple: #8B5CF6;
+  --dave-gradient-start: #5B73DB;
+  --dave-gradient-end: #9C88FF;
+  
+  /* Tech/AI Accent Colors */
+  --dave-neon-cyan: #00D4FF;
+  --dave-electric-blue: #0EA5E9;
+  --dave-neural-purple: #A855F7;
+  --dave-dna-green: #10B981;
+  
+  /* Dark Theme Background Colors */
+  --dave-bg-primary: #0A0A0F;
+  --dave-bg-secondary: #1A1A2E;
+  --dave-bg-tertiary: #16213E;
+  --dave-bg-card: #1E293B;
+  
+  /* Text Colors for Dark Theme */
+  --dave-text-primary: #FFFFFF;
+  --dave-text-secondary: #E2E8F0;
+  --dave-text-muted: #94A3B8;
+  --dave-text-accent: #CBD5E1;
+  
+  /* Glow and Effect Colors */
+  --dave-glow-primary: rgba(74, 144, 226, 0.4);
+  --dave-glow-secondary: rgba(139, 92, 246, 0.3);
+  --dave-glow-neon: rgba(0, 212, 255, 0.5);
+  --dave-shadow-soft: rgba(0, 0, 0, 0.3);
+  --dave-shadow-strong: rgba(0, 0, 0, 0.6);
 }
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255; */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -84,5 +119,82 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Dr. Dave's Custom Utility Classes */
+@layer utilities {
+  /* Background Gradients */
+  /* .bg-dave-hero {
+    background: linear-gradient(135deg, var(--dave-bg-primary) 0%, var(--dave-bg-secondary) 50%, var(--dave-bg-tertiary) 100%);
+  }
+  
+  .bg-dave-gradient {
+    background: linear-gradient(135deg, var(--dave-gradient-start) 0%, var(--dave-gradient-end) 100%);
+  } */
+  
+  .bg-dave-neural {
+    background: radial-gradient(circle at center, var(--dave-neural-purple) 0%, transparent 70%);
+  }
+  
+  /* Text Colors */
+  .text-dave-primary {
+    color: var(--dave-primary-blue);
+  }
+  
+  .text-dave-neon {
+    color: var(--dave-neon-cyan);
+  }
+  
+  .text-dave-purple {
+    color: var(--dave-light-purple);
+  }
+  
+  /* Glow Effects */
+  .glow-dave-primary {
+    box-shadow: 0 0 20px var(--dave-glow-primary), 0 0 40px var(--dave-glow-primary);
+  }
+  
+  .glow-dave-neon {
+    box-shadow: 0 0 20px var(--dave-glow-neon), 0 0 40px var(--dave-glow-neon);
+  }
+  
+  .glow-dave-purple {
+    box-shadow: 0 0 20px var(--dave-glow-secondary), 0 0 40px var(--dave-glow-secondary);
+  }
+  
+  /* Border Colors */
+  .border-dave-neon {
+    border-color: var(--dave-neon-cyan);
+  }
+  
+  .border-dave-purple {
+    border-color: var(--dave-light-purple);
+  }
+  
+  /* Particle Animation Classes */
+  .particle-dna {
+    background: linear-gradient(45deg, var(--dave-dna-green), var(--dave-electric-blue));
+  }
+  
+  .particle-neural {
+    background: var(--dave-neural-purple);
+  }
+  
+  /* Neon Text Effect */
+  .text-neon-dave {
+    color: var(--dave-neon-cyan);
+    text-shadow: 
+      0 0 5px var(--dave-neon-cyan),
+      0 0 10px var(--dave-neon-cyan),
+      0 0 15px var(--dave-neon-cyan);
+  }
+  
+  /* Professional Glow for Profile Image */
+  .profile-glow-dave {
+    box-shadow: 
+      0 0 30px var(--dave-glow-primary),
+      0 0 60px var(--dave-glow-secondary),
+      0 0 90px var(--dave-glow-neon);
   }
 }
