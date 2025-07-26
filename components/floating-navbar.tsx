@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 export const FloatingNavbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,53 +13,62 @@ export const FloatingNavbar: React.FC = () => {
       setIsScrolled(scrollTop > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled
-      ? 'bg-gray-800/90 backdrop-blur-md shadow-lg mx-4 mt-4 rounded-full border border-gray-700/50'
-      : 'bg-gray-800/70 backdrop-blur-sm border-b border-gray-700/30'
-      }`}>
-      <div className={`max-w-7xl mx-auto transition-all duration-300 ${isScrolled ? 'px-6 py-3' : 'px-8 py-4'
-        }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled
+          ? "bg-[var(--bg-card)]/90 backdrop-blur-md shadow-lg mx-4 mt-4 rounded-full border border-[var(--border-light)]"
+          : "bg-[var(--bg-card)]/70 backdrop-blur-sm border-b border-[var(--border-medium)]"
+      }`}
+    >
+      <div
+        className={`max-w-7xl mx-auto transition-all duration-300 ${
+          isScrolled ? "px-6 py-3" : "px-8 py-4"
+        }`}
+      >
         <div className="flex items-center justify-between">
           {/* Logo/Name */}
-          <div className={`text-white font-ancizar transition-all duration-300 ${isScrolled ? 'text-lg' : 'text-xl'
-            }`}>
-            Dr. Chintan Dave
+          <div
+            className={`text-[var(--dark-blue)] font-helvetica transition-all duration-300 ${
+              isScrolled ? "text-lg" : "text-xl"
+            }`}
+          >
+            <Image src="/logo.png" alt="Logo" width={100} height={100} />
           </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center transition-all duration-300 space-x-6">
             <a
               href="#about"
-              className="text-gray-300 hover:text-white transition-colors duration-200 text-md font-medium"
+              className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
             >
               Credentials
             </a>
             <a
               href="#services"
-              className="text-gray-300 hover:text-white transition-colors duration-200 text-md font-medium"
+              className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
             >
               Consulting
             </a>
             <a
               href="#research"
-              className="text-gray-300 hover:text-white transition-colors duration-200 text-md font-medium"
+              className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
             >
               Being Human
             </a>
             <a
               href="#contact"
-              className="text-gray-300 hover:text-white transition-colors duration-200 text-md font-medium"
+              className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
             >
               Media
             </a>
 
             {/* CTA Button */}
-            <button className="bg-[#0EA5E9] hover:bg-[#0284C7] text-white font-medium transition-all duration-200 shadow-md rounded-full px-4 py-2 text-md">
+            <button className="bg-[var(--dark-blue)] hover:bg-[var(--dark-blue-light)] text-white font-medium transition-all duration-200 shadow-md rounded-full px-4 py-2 text-md">
               Book Consultation
             </button>
           </div>
@@ -66,7 +76,7 @@ export const FloatingNavbar: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-2"
+            className="md:hidden text-[var(--dark-blue)] p-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -97,37 +107,40 @@ export const FloatingNavbar: React.FC = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-gray-800/95 backdrop-blur-md border-t border-gray-700/50 transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100 py-4' : 'max-h-0 opacity-0 py-0 overflow-hidden'
-          }`}
+        className={`md:hidden absolute top-full left-0 right-0 bg-[#f8f5f0] border-t border-gray-200 transition-all duration-300 ease-in-out shadow-lg ${
+          isMobileMenuOpen
+            ? "max-h-96 opacity-100 py-4"
+            : "max-h-0 opacity-0 py-0 overflow-hidden"
+        }`}
       >
         <div className="flex flex-col space-y-4 px-8">
           <a
             href="#about"
-            className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+            className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
           >
-            About
+            Credentials
           </a>
           <a
             href="#services"
-            className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+            className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
           >
-            Services
+            Consulting
           </a>
           <a
             href="#research"
-            className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+            className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
           >
-            Research
+            Being Human
           </a>
           <a
             href="#contact"
-            className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+            className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
           >
-            Contact
+            Media
           </a>
 
           {/* Mobile CTA Button */}
-          <button className="bg-[#0EA5E9] hover:bg-[#0284C7] text-white font-medium transition-all duration-200 shadow-md rounded-full py-2 text-sm w-full">
+          <button className="bg-[var(--dark-blue)] hover:bg-[var(--dark-blue-light)] text-white font-medium transition-all duration-200 shadow-md rounded-full py-2 text-sm w-full">
             Book Consultation
           </button>
         </div>

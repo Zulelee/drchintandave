@@ -1,111 +1,114 @@
 "use client";
 
-import React from 'react';
-import { Stethoscope, Brain, GraduationCap, Award } from 'lucide-react';
+import React, { Suspense } from "react";
+import Image from "next/image";
 
 export const AboutSection: React.FC = () => {
-  const expertise = [
-    {
-      icon: Stethoscope,
-      title: "Medicine",
-      description: "Extensive clinical experience with a focus on patient-centered care and evidence-based practice.",
-      color: "from-blue-400 to-blue-600"
-    },
-    {
-      icon: Brain,
-      title: "Artificial Intelligence",
-      description: "Pioneering the integration of AI technologies in healthcare for improved diagnostics and treatment.",
-      color: "from-cyan-400 to-cyan-600"
-    },
-    {
-      icon: GraduationCap,
-      title: "Education",
-      description: "Dedicated to training the next generation of healthcare professionals in modern medical practices.",
-      color: "from-purple-400 to-purple-600"
-    }
-  ];
-
-  const achievements = [
-    { number: "15+", label: "Years Experience" },
-    { number: "500+", label: "Students Mentored" },
-    { number: "50+", label: "Research Papers" },
-    { number: "10+", label: "AI Projects" }
-  ];
-  
-  // Scroll animation state
-  const [scrollY, setScrollY] = React.useState(0);
-  
-  React.useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <section 
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-transparent text-white"
-      style={{
-        transform: `translateY(${Math.max(0, 100 - scrollY / 5)}vh)`,
-        opacity: Math.min(1, (scrollY - 300) / 500),
-        transition: 'transform 0.5s ease-out'
-      }}
+    <section
+      id="about-section"
+      className="relative min-h-screen flex items-center justify-center mb-36"
+      style={{ background: "transparent" }}
     >
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Bridging Traditional Medicine with
-            <span className="bg-gradient-to-r from-[#00D4FF] to-[#A855F7] bg-clip-text text-transparent"> Modern Innovation</span>
-          </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            With over 15 years of experience in medicine and a passion for artificial intelligence, 
-            Dr. Chintan Dave is at the forefront of healthcare innovation, combining clinical expertise 
-            with cutting-edge technology to improve patient outcomes and medical education.
-          </p>
-        </div>
-
-        {/* Expertise Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {expertise.map((item, index) => (
-            <div 
-              key={index}
-              className="group relative bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-[#00D4FF]/50"
-            >
-              {/* Icon with gradient background */}
-              <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${item.color} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                <item.icon className="w-full h-full text-white" />
+      {/* Glassmorphic Container */}
+      <div
+        className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+        style={{ maxHeight: "70vh" }}
+      >
+        <div
+          className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl border"
+          style={{
+            background: "rgba(255, 255, 255, 0.1)",
+            borderColor: "rgba(255, 255, 255, 0.2)",
+            boxShadow: `
+              0 8px 32px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1)
+            `,
+          }}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <div className="space-y-8">
+              <div>
+                <h2
+                  className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
+                  style={{
+                    color: "var(--dark-blue)",
+                    textShadow: `
+                      2px 2px 0px var(--dark-blue-light),
+                      4px 4px 0px rgba(26, 54, 93, 0.3),
+                      6px 6px 15px rgba(26, 54, 93, 0.2)
+                    `,
+                  }}
+                >
+                  Hi, I&apos;m Dr. Dave
+                </h2>
               </div>
-              
-              <h3 className="text-2xl font-semibold text-white mb-4">{item.title}</h3>
-              <p className="text-gray-300 leading-relaxed">{item.description}</p>
-              
-              {/* Hover effect overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00D4FF]/10 to-[#A855F7]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+
+              <div
+                className="space-y-6 text-lg leading-relaxed"
+                style={{ color: "var(--text-dark)" }}
+              >
+                <p>
+                  I&apos;m a{" "}
+                  <strong>
+                    dual-certified Internal Medicine and Critical Care Physician
+                  </strong>{" "}
+                  with expertise in medical research, AI, and teaching. I went
+                  into Medicine wanting to serve others, and help people through
+                  the darkest and toughest times of their lives.
+                </p>
+
+                <p>
+                  While it has remained a privilege to serve others as a doctor,
+                  over the years, I had a deeper feeling that I was meant to do
+                  more and help more people. This is when I started sharing my
+                  stories and lessons through social media.
+                </p>
+
+                <p>
+                  I am now on the journey to{" "}
+                  <strong>
+                    help people think more critically, make better decisions,
+                    and contribute towards improving humanity.
+                  </strong>
+                </p>
+              </div>
             </div>
-          ))}
-        </div>
 
-        {/* Achievements */}
-        <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-8 sm:p-12">
-          <div className="text-center mb-12">
-            <Award className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">Professional Achievements</h3>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              A track record of excellence in medicine, research, and education
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-cyan-400 mb-2">
-                  {achievement.number}
+            {/* Dr. Dave's Photo */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                {/* Glassmorphic Photo Frame */}
+                <div
+                  className="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden backdrop-blur-md border shadow-2xl"
+                  style={{
+                    background: "rgba(255, 255, 255, 0.1)",
+                    borderColor: "rgba(255, 255, 255, 0.2)",
+                  }}
+                >
+                  <Image
+                    src="/image.png" // Using the existing Dr. Dave image
+                    alt="Dr. Chintan Dave"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
-                <div className="text-gray-300 text-sm sm:text-base">
-                  {achievement.label}
+
+                {/* Floating Badge */}
+                <div
+                  className="absolute -bottom-4 -right-4 px-6 py-3 rounded-full backdrop-blur-md border shadow-lg"
+                  style={{
+                    background: "rgba(26, 54, 93, 0.9)",
+                    borderColor: "rgba(255, 255, 255, 0.2)",
+                    color: "white",
+                  }}
+                >
+                  <div className="text-sm font-semibold">MD, AI Expert</div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
