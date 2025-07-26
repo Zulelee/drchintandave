@@ -14,7 +14,7 @@ const NeuralBrainCanvas = dynamic(() => import("./ui/neural-brain"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-purple-400"></div>
+      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[var(--dark-blue)]"></div>
     </div>
   ),
 });
