@@ -7,16 +7,13 @@ export const AboutSection: React.FC = () => {
   return (
     <section
       id="about-section"
-      className="relative min-h-screen flex items-center justify-center mb-36"
+      className="relative w-full overflow-hidden bg-transparent py-20 px-4"
       style={{ background: "transparent" }}
     >
       {/* Glassmorphic Container */}
-      <div
-        className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
-        style={{ maxHeight: "70vh" }}
-      >
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl border"
+          className="backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16 shadow-2xl border"
           style={{
             background: "rgba(255, 255, 255, 0.1)",
             borderColor: "rgba(255, 255, 255, 0.2)",
@@ -26,12 +23,12 @@ export const AboutSection: React.FC = () => {
             `,
           }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Text Content */}
-            <div className="space-y-8">
+            <div className="space-y-6 lg:space-y-8">
               <div>
                 <h2
-                  className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
+                  className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 leading-tight"
                   style={{
                     color: "var(--dark-blue)",
                     textShadow: `
@@ -46,7 +43,7 @@ export const AboutSection: React.FC = () => {
               </div>
 
               <div
-                className="space-y-6 text-lg leading-relaxed"
+                className="space-y-4 lg:space-y-6 text-base lg:text-lg leading-relaxed"
                 style={{ color: "var(--text-dark)" }}
               >
                 <p>
@@ -77,11 +74,11 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* Dr. Dave's Photo */}
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
               <div className="relative">
                 {/* Glassmorphic Photo Frame */}
                 <div
-                  className="w-80 h-80 sm:w-96 sm:h-96 rounded-3xl overflow-hidden backdrop-blur-md border shadow-2xl"
+                  className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden backdrop-blur-md border shadow-2xl"
                   style={{
                     background: "rgba(255, 255, 255, 0.1)",
                     borderColor: "rgba(255, 255, 255, 0.2)",
@@ -98,14 +95,16 @@ export const AboutSection: React.FC = () => {
 
                 {/* Floating Badge */}
                 <div
-                  className="absolute -bottom-4 -right-4 px-6 py-3 rounded-full backdrop-blur-md border shadow-lg"
+                  className="absolute -bottom-4 -right-4 px-4 sm:px-6 py-2 sm:py-3 rounded-full backdrop-blur-md border shadow-lg"
                   style={{
                     background: "rgba(26, 54, 93, 0.9)",
                     borderColor: "rgba(255, 255, 255, 0.2)",
                     color: "white",
                   }}
                 >
-                  <div className="text-sm font-semibold">MD, AI Expert</div>
+                  <div className="text-xs sm:text-sm font-semibold">
+                    MD, AI Expert
+                  </div>
                 </div>
               </div>
             </div>

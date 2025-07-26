@@ -80,10 +80,10 @@ const data = [
 
 const DemoMasonry = () => {
   return (
-    <section className="relative w-full flex items-center justify-center overflow-hidden bg-transparent py-20 px-4">
+    <section className="relative w-full flex items-center justify-center overflow-hidden bg-transparent py-12 sm:py-20 px-4">
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl border"
+          className="backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16 shadow-2xl border"
           style={{
             background: "rgba(255, 255, 255, 0.1)",
             borderColor: "rgba(255, 255, 255, 0.2)",
@@ -94,7 +94,7 @@ const DemoMasonry = () => {
           }}
         >
           <h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 leading-tight text-center"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 sm:mb-12 leading-tight text-center"
             style={{
               color: "var(--dark-blue)",
               textShadow: `

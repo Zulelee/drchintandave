@@ -31,73 +31,7 @@ export function HeroSection({ onExit }: HeroSectionProps) {
 
   useEffect(() => {
     setMounted(true);
-    setMounted(true);
   }, []);
-
-  // Lock/unlock body scroll based on showHero
-  useEffect(() => {
-    if (showHero) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [showHero]);
-
-  // Zoom handler
-  useEffect(() => {
-    if (!showHero || !heroRef.current) return;
-    const handleWheel = (e: WheelEvent) => {
-      if (e.ctrlKey || e.metaKey) return; // ignore browser zoom
-      e.preventDefault();
-      setScale((prev) => {
-        let next = prev + e.deltaY * -0.001;
-        next = Math.max(0.7, Math.min(1.5, next));
-        return next;
-      });
-    };
-    const node = heroRef.current;
-    node.addEventListener("wheel", handleWheel, { passive: false });
-    return () => {
-      node.removeEventListener("wheel", handleWheel);
-    };
-  }, [showHero]);
-
-  // Pinch-to-zoom for touch devices
-  useEffect(() => {
-    if (!showHero || !heroRef.current) return;
-    let lastDist: number | null = null;
-    const handleTouchMove = (e: TouchEvent) => {
-      if (e.touches.length === 2) {
-        e.preventDefault();
-        const dx = e.touches[0].clientX - e.touches[1].clientX;
-        const dy = e.touches[0].clientY - e.touches[1].clientY;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (lastDist !== null) {
-          setScale((prev) => {
-            let next = prev + (dist - (lastDist as number)) * 0.003;
-            next = Math.max(0.7, Math.min(1.5, next));
-            return next;
-          });
-        }
-        lastDist = dist;
-      }
-    };
-    const handleTouchEnd = () => {
-      lastDist = null;
-    };
-    const node = heroRef.current;
-    node.addEventListener("touchmove", handleTouchMove, { passive: false });
-    node.addEventListener("touchend", handleTouchEnd);
-    return () => {
-      node.removeEventListener("touchmove", handleTouchMove);
-      node.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [showHero]);
-
-  if (!mounted) return null;
 
   // Lock/unlock body scroll based on showHero
   useEffect(() => {
@@ -237,74 +171,13 @@ export function HeroSection({ onExit }: HeroSectionProps) {
             `,
               }}
             >
-            {/* Typewriter Text */}
-            <div
-              className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-12 "
-              style={{
-                color: "var(--accent-blue)",
-                textShadow: `
-              2px 2px 0px var(--dark-blue),
-              4px 4px 0px rgba(26, 54, 93, 0.4),
-              6px 6px 15px rgba(26, 54, 93, 0.3),
-              0px 0px 20px rgba(49, 130, 206, 0.5)
-            `,
-              }}
-            >
               <TypewriterText
-                words={["Medicine", "AI", "Innovation", "Healthcare"]}
-                typingSpeed={100}
                 words={["Medicine", "AI", "Innovation", "Healthcare"]}
                 typingSpeed={100}
                 deletingSpeed={50}
                 pauseDuration={2000}
-                pauseDuration={2000}
               />
             </div>
-            {/* Contact Button */}
-            <div className="mt-16 flex flex-col items-center gap-6">
-              <button
-                className="px-12 py-4 text-xl font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                style={{
-                  backgroundColor: "var(--dark-blue)",
-                  color: "white",
-                  border: "2px solid var(--dark-blue-light)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor =
-                    "var(--dark-blue-light)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "var(--dark-blue)";
-                }}
-              >
-                Contact Dr. Dave
-              </button>
-              {/* Scroll to About Button */}
-              <button
-                onClick={() => {
-                  setShowHero(false);
-                }}
-                className="flex flex-col items-center gap-2 text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-all duration-300 group"
-              >
-                <span className="text-sm font-medium">
-                  Learn More About Dr. Dave
-                </span>
-                <div className="w-6 h-6 border-2 border-current rounded-full flex items-center justify-center group-hover:animate-bounce">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-3 w-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                    />
-                  </svg>
-                </div>
             {/* Contact Button */}
             <div className="mt-16 flex flex-col items-center gap-6">
               <button
@@ -356,10 +229,5 @@ export function HeroSection({ onExit }: HeroSectionProps) {
         </motion.section>
       )}
     </AnimatePresence>
-        </motion.section>
-      )}
-    </AnimatePresence>
   );
-}
-
 }
