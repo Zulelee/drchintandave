@@ -39,7 +39,7 @@ export default function Home() {
 
       <WavyBackground
         className="fixed inset-0 z-0"
-        colors={["#1A365D", "#2C4F7C", "#1A2A4A", "#1D3A6C"]}
+        colors={["#3182ce", "#38b2ac", "#3182ce", "#38b2ac"]}
         speed="slow"
         waveOpacity={0.3}
         blur={7}
