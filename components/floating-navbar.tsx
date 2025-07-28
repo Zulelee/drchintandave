@@ -37,31 +37,33 @@ export const FloatingNavbar: React.FC = () => {
               isScrolled ? "text-lg" : "text-xl"
             }`}
           >
-            <Image src="/logo.png" alt="Logo" width={100} height={100} />
+            <a href="/">
+              <Image src="/logo.png" alt="Logo" width={100} height={100} />
+            </a>
           </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center transition-all duration-300 space-x-6">
             <a
-              href="#about"
+              href="/credentials"
               className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
             >
               Credentials
             </a>
             <a
-              href="#services"
+              href="/consulting"
               className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
             >
               Consulting
             </a>
             <a
-              href="#research"
+              href="/being-human"
               className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
             >
               Being Human
             </a>
             <a
-              href="#contact"
+              href="/media"
               className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
             >
               Media
@@ -115,25 +117,25 @@ export const FloatingNavbar: React.FC = () => {
       >
         <div className="flex flex-col space-y-4 px-8">
           <a
-            href="#about"
+            href="/credentials"
             className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
           >
             Credentials
           </a>
           <a
-            href="#services"
+            href="/consulting"
             className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
           >
             Consulting
           </a>
           <a
-            href="#research"
+            href="/being-human"
             className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
           >
             Being Human
           </a>
           <a
-            href="#contact"
+            href="/media"
             className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
           >
             Media

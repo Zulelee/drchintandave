@@ -44,25 +44,25 @@ export const Footer = () => {
             </h4>
             <div className="space-y-2">
               <a
-                href="#about"
+                href="/credentials"
                 className="block text-gray-300 hover:text-white transition-colors duration-300 text-sm"
               >
                 Credentials
               </a>
               <a
-                href="#services"
+                href="/consulting"
                 className="block text-gray-300 hover:text-white transition-colors duration-300 text-sm"
               >
                 Consulting
               </a>
               <a
-                href="#research"
+                href="/being-human"
                 className="block text-gray-300 hover:text-white transition-colors duration-300 text-sm"
               >
                 Being Human
               </a>
               <a
-                href="#contact"
+                href="/media"
                 className="block text-gray-300 hover:text-white transition-colors duration-300 text-sm"
               >
                 Media
@@ -105,13 +105,13 @@ export const Footer = () => {
             </div>
             <div className="flex items-center space-x-6 text-sm">
               <a
-                href="#privacy"
+                href="/privacy"
                 className="text-gray-400 hover:text-white transition-colors duration-300"
               >
                 Privacy Policy
               </a>
               <a
-                href="#terms"
+                href="/terms"
                 className="text-gray-400 hover:text-white transition-colors duration-300"
               >
                 Terms of Service

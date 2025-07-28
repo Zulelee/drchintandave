@@ -189,10 +189,10 @@ export default function CredentialsPage() {
             </h1>
 
             <div className="mb-12">
-              <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--accent-blue)] mb-4">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--dark-blue)] mb-4 drop-shadow-lg">
                 Chintan Dave, BSc., MD
               </h2>
-              <p className="text-lg text-[var(--text-dark)] max-w-4xl mx-auto leading-relaxed">
+              <p className="text-lg text-[var(--dark-blue)]/90 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
                 Internal Medicine and Critical Care Medicine physician with a
                 passion for continual self-development and all things medicine.
                 Dedicated to medical innovation and leveraging biotechnology
@@ -228,7 +228,7 @@ export default function CredentialsPage() {
                   className={`flex items-center px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                     activeSection === section.id
                       ? "bg-[var(--accent-blue)] text-white shadow-lg"
-                      : "bg-white/10 backdrop-blur-sm text-[var(--text-dark)] hover:bg-white/20 border border-white/20"
+                      : "bg-white/80 backdrop-blur-sm text-[var(--dark-blue)] hover:bg-white/90 border border-white/50 shadow-md"
                   }`}
                 >
                   <Icon className="w-5 h-5 mr-2" />
@@ -258,7 +258,7 @@ export default function CredentialsPage() {
                 transition={{ duration: 0.5 }}
                 className="space-y-8"
               >
-                <h3 className="text-3xl font-bold text-[var(--accent-blue)] mb-8 text-center">
+                <h3 className="text-3xl font-bold text-[var(--dark-blue)] mb-8 text-center drop-shadow-lg">
                   Educational Journey
                 </h3>
                 <div className="space-y-6">
@@ -268,23 +268,25 @@ export default function CredentialsPage() {
                       initial={{ opacity: 0, x: -50 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-start space-x-6 p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300"
+                      className="flex items-start space-x-6 p-6 bg-white/15 backdrop-blur-sm rounded-xl border border-white/20 hover:border-white/30 transition-all duration-300 shadow-lg"
                     >
                       <div className="text-4xl">{item.icon}</div>
                       <div className="flex-1">
                         <div className="flex items-center space-x-4 mb-2">
-                          <span className="text-sm font-medium text-[var(--accent-blue)] bg-[var(--accent-blue)]/10 px-3 py-1 rounded-full">
+                          <span className="text-sm font-medium text-[var(--dark-blue)] bg-[var(--accent-blue)]/20 px-3 py-1 rounded-full">
                             {item.period}
                           </span>
-                          <span className="text-sm text-gray-400 flex items-center">
+                          <span className="text-sm text-[var(--dark-blue)]/70 flex items-center">
                             <MapPin className="w-4 h-4 mr-1" />
                             {item.location}
                           </span>
                         </div>
-                        <h4 className="text-xl font-semibold text-[var(--text-dark)] mb-1">
+                        <h4 className="text-xl font-semibold text-[var(--dark-blue)] mb-1 drop-shadow-sm">
                           {item.institution}
                         </h4>
-                        <p className="text-[var(--text-dark)]">{item.degree}</p>
+                        <p className="text-[var(--dark-blue)]/90 drop-shadow-sm">
+                          {item.degree}
+                        </p>
                       </div>
                     </motion.div>
                   ))}
@@ -300,7 +302,7 @@ export default function CredentialsPage() {
                 transition={{ duration: 0.5 }}
                 className="space-y-8"
               >
-                <h3 className="text-3xl font-bold text-[var(--accent-blue)] mb-8 text-center">
+                <h3 className="text-3xl font-bold text-[var(--dark-blue)] mb-8 text-center drop-shadow-lg">
                   Professional Experience
                 </h3>
                 <div className="space-y-6">
@@ -310,26 +312,26 @@ export default function CredentialsPage() {
                       initial={{ opacity: 0, x: -50 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300"
+                      className="p-6 bg-white/15 backdrop-blur-sm rounded-xl border border-white/20 hover:border-white/30 transition-all duration-300 shadow-lg"
                     >
                       <div className="flex items-start space-x-4 mb-4">
                         <div className="text-3xl">{item.icon}</div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-4 mb-2">
-                            <span className="text-sm font-medium text-[var(--accent-blue)] bg-[var(--accent-blue)]/10 px-3 py-1 rounded-full">
+                            <span className="text-sm font-medium text-[var(--dark-blue)] bg-[var(--accent-blue)]/20 px-3 py-1 rounded-full">
                               {item.period}
                             </span>
-                            <span className="text-sm text-gray-400">
+                            <span className="text-sm text-[var(--dark-blue)]/70">
                               {item.location}
                             </span>
                           </div>
-                          <h4 className="text-xl font-semibold text-[var(--text-dark)] mb-1">
+                          <h4 className="text-xl font-semibold text-[var(--dark-blue)] mb-1 drop-shadow-sm">
                             {item.organization}
                           </h4>
-                          <p className="text-lg font-medium text-[var(--accent-blue)] mb-2">
+                          <p className="text-lg font-medium text-[var(--accent-blue)] mb-2 drop-shadow-sm">
                             {item.role}
                           </p>
-                          <p className="text-[var(--text-dark)] leading-relaxed">
+                          <p className="text-[var(--dark-blue)]/90 leading-relaxed drop-shadow-sm">
                             {item.description}
                           </p>
                         </div>
@@ -348,7 +350,7 @@ export default function CredentialsPage() {
                 transition={{ duration: 0.5 }}
                 className="space-y-8"
               >
-                <h3 className="text-3xl font-bold text-[var(--accent-blue)] mb-8 text-center">
+                <h3 className="text-3xl font-bold text-[var(--dark-blue)] mb-8 text-center drop-shadow-lg">
                   Recognition & Awards
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -358,21 +360,21 @@ export default function CredentialsPage() {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300"
+                      className="p-6 bg-white/15 backdrop-blur-sm rounded-xl border border-white/20 hover:border-white/30 transition-all duration-300 shadow-lg"
                     >
                       <div className="flex items-center space-x-3 mb-3">
                         <Award className="w-6 h-6 text-yellow-400" />
-                        <span className="text-sm font-medium text-[var(--accent-blue)] bg-[var(--accent-blue)]/10 px-3 py-1 rounded-full">
+                        <span className="text-sm font-medium text-[var(--dark-blue)] bg-[var(--accent-blue)]/20 px-3 py-1 rounded-full">
                           {award.year}
                         </span>
                       </div>
-                      <h4 className="text-lg font-semibold text-[var(--text-dark)] mb-2">
+                      <h4 className="text-lg font-semibold text-[var(--dark-blue)] mb-2 drop-shadow-sm">
                         {award.award}
                       </h4>
-                      <p className="text-sm text-[var(--accent-blue)] mb-3">
+                      <p className="text-sm text-[var(--accent-blue)] mb-3 drop-shadow-sm font-bold">
                         {award.organization}
                       </p>
-                      <p className="text-sm text-[var(--text-dark)] leading-relaxed">
+                      <p className="text-sm text-[var(--dark-blue)]/90 leading-relaxed drop-shadow-sm">
                         {award.description}
                       </p>
                     </motion.div>
@@ -389,7 +391,7 @@ export default function CredentialsPage() {
                 transition={{ duration: 0.5 }}
                 className="space-y-8"
               >
-                <h3 className="text-3xl font-bold text-[var(--accent-blue)] mb-8 text-center">
+                <h3 className="text-3xl font-bold text-[var(--dark-blue)] mb-8 text-center drop-shadow-lg">
                   Select Publications
                 </h3>
                 <div className="space-y-6">
@@ -399,27 +401,29 @@ export default function CredentialsPage() {
                       initial={{ opacity: 0, x: -50 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300"
+                      className="p-6 bg-white/15 backdrop-blur-sm rounded-xl border border-white/20 hover:border-white/30 transition-all duration-300 shadow-lg"
                     >
                       <div className="flex items-start space-x-4">
                         <FileText className="w-6 h-6 text-[var(--accent-blue)] mt-1" />
                         <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-[var(--text-dark)] mb-2 leading-relaxed">
+                          <h4 className="text-lg font-semibold text-[var(--dark-blue)] mb-2 leading-relaxed drop-shadow-sm">
                             {pub.title}
                           </h4>
-                          <p className="text-sm text-[var(--text-dark)] mb-2">
+                          <p className="text-sm text-[var(--dark-blue)]/90 mb-2 drop-shadow-sm">
                             {pub.authors}
                           </p>
                           <div className="flex items-center space-x-4 text-sm">
-                            <span className="text-[var(--accent-blue)] font-medium">
+                            <span className="text-[var(--accent-blue)] font-medium drop-shadow-sm">
                               {pub.journal}
                             </span>
-                            <span className="text-gray-400">{pub.year}</span>
+                            <span className="text-[var(--dark-blue)]/70">
+                              {pub.year}
+                            </span>
                             <a
                               href={pub.doi}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center text-[var(--accent-blue)] hover:text-[var(--dark-blue)] transition-colors duration-300"
+                              className="flex items-center text-[var(--accent-blue)] hover:text-[var(--dark-blue)] transition-colors duration-300 drop-shadow-sm"
                             >
                               <ExternalLink className="w-4 h-4 mr-1" />
                               DOI
