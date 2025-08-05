@@ -1,13 +1,9 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
-import type { ReactNode } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Brain, Zap, Target } from "lucide-react";
-import { TypewriterText } from "./typewriter-text";
+import { AnimatePresence, motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import { useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { TypewriterText } from "./typewriter-text";
 
 // Dynamically import the 3D component to avoid SSR issues
 const NeuralBrainCanvas = dynamic(() => import("./ui/neural-brain"), {
@@ -27,6 +23,7 @@ export function HeroSection({ onExit }: HeroSectionProps) {
   const [mounted, setMounted] = useState(false);
   const [showHero, setShowHero] = useState(true);
   const [scale, setScale] = useState(1);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -45,54 +42,97 @@ export function HeroSection({ onExit }: HeroSectionProps) {
     };
   }, [showHero]);
 
-  // Zoom handler
+  // Zoom and transition handler
   useEffect(() => {
     if (!showHero || !heroRef.current) return;
+
+    console.log("Setting up wheel event listener...");
+
     const handleWheel = (e: WheelEvent) => {
+      console.log("Wheel event detected!");
       if (e.ctrlKey || e.metaKey) return; // ignore browser zoom
       e.preventDefault();
-      setScale((prev) => {
-        let next = prev + e.deltaY * -0.001;
-        next = Math.max(0.7, Math.min(1.5, next));
-        return next;
+
+      // Increase scale on scroll
+      console.log(`Scroll delta: ${e.deltaY}`);
+      setScale((prevScale) => {
+        const newScale = prevScale + e.deltaY * -0.01; // Increased multiplier
+        const clampedScale = Math.max(1, Math.min(1.5, newScale));
+        console.log(`Previous scale: ${prevScale}, New scale: ${clampedScale}`);
+
+        // Calculate progress for visual indicator (0 to 1)
+        const progress = Math.max(0, Math.min(1, (clampedScale - 1) / 0.5));
+        setScrollProgress(progress);
+
+        // Auto-transition when scale reaches 1.5 (50% zoom)
+        if (clampedScale >= 1.5) {
+          console.log("Zoom threshold reached, transitioning to main page...");
+          setShowHero(false);
+        }
+
+        return clampedScale;
       });
     };
+
     const node = heroRef.current;
+    console.log("Adding wheel event listener to:", node);
     node.addEventListener("wheel", handleWheel, { passive: false });
+
     return () => {
+      console.log("Removing wheel event listener");
       node.removeEventListener("wheel", handleWheel);
     };
   }, [showHero]);
 
-  // Pinch-to-zoom for touch devices
+  // Touch handler for mobile devices
   useEffect(() => {
     if (!showHero || !heroRef.current) return;
-    let lastDist: number | null = null;
+
+    let lastY = 0;
+
     const handleTouchMove = (e: TouchEvent) => {
-      if (e.touches.length === 2) {
+      if (e.touches.length === 1) {
         e.preventDefault();
-        const dx = e.touches[0].clientX - e.touches[1].clientX;
-        const dy = e.touches[0].clientY - e.touches[1].clientY;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (lastDist !== null) {
-          setScale((prev) => {
-            let next = prev + (dist - (lastDist as number)) * 0.003;
-            next = Math.max(0.7, Math.min(1.5, next));
-            return next;
-          });
-        }
-        lastDist = dist;
+        const currentY = e.touches[0].clientY;
+        const deltaY = lastY - currentY; // Positive when scrolling up
+
+        // Increase scale on touch scroll
+        setScale((prevScale) => {
+          const newScale = prevScale + deltaY * 0.002;
+          const clampedScale = Math.max(1, Math.min(3.0, newScale));
+
+          // Calculate progress for visual indicator (0 to 1)
+          const progress = Math.max(0, Math.min(1, (clampedScale - 1) / 2.0));
+          setScrollProgress(progress);
+          console.log(`Scale: ${clampedScale}, Progress: ${progress * 100}%`);
+
+          // Auto-transition when scale reaches 3.0 (200% zoom)
+          if (clampedScale >= 3.0) {
+            console.log(
+              "Zoom threshold reached (mobile), transitioning to main page..."
+            );
+            setShowHero(false);
+          }
+
+          return clampedScale;
+        });
+
+        lastY = currentY;
       }
     };
-    const handleTouchEnd = () => {
-      lastDist = null;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        lastY = e.touches[0].clientY;
+      }
     };
+
     const node = heroRef.current;
+    node.addEventListener("touchstart", handleTouchStart);
     node.addEventListener("touchmove", handleTouchMove, { passive: false });
-    node.addEventListener("touchend", handleTouchEnd);
     return () => {
+      node.removeEventListener("touchstart", handleTouchStart);
       node.removeEventListener("touchmove", handleTouchMove);
-      node.removeEventListener("touchend", handleTouchEnd);
     };
   }, [showHero]);
 
@@ -115,14 +155,42 @@ export function HeroSection({ onExit }: HeroSectionProps) {
         <motion.section
           ref={heroRef}
           initial={{ y: 0, opacity: 1 }}
-          animate={{ y: 0, opacity: 1, scale: scale }}
-          exit={{ y: "-100vh", opacity: 0, scale: scale }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: "-100vh", opacity: 0 }}
           transition={{ duration: 1.8, ease: [0.4, 0.8, 0.2, 1] }}
           className={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[var(--cream)]`}
           style={{ willChange: "transform, opacity" }}
+          onWheel={(e) => {
+            console.log("Direct onWheel event detected!");
+            e.preventDefault();
+            setScale((prevScale) => {
+              const newScale = prevScale + e.deltaY * -0.01;
+              const clampedScale = Math.max(1, Math.min(3.0, newScale));
+              console.log(
+                `Direct wheel - Previous: ${prevScale}, New: ${clampedScale}`
+              );
+
+              const progress = Math.max(
+                0,
+                Math.min(1, (clampedScale - 1) / 2.0)
+              );
+              setScrollProgress(progress);
+
+              if (clampedScale >= 3.0) {
+                console.log("Direct wheel - Transitioning to main page...");
+                setShowHero(false);
+              }
+
+              return clampedScale;
+            });
+          }}
         >
           {/* 3D Neural Brain Background */}
-          <div className="absolute inset-0 z-0">
+          <motion.div
+            className="absolute inset-0 z-0"
+            animate={{ scale: scale }}
+            transition={{ duration: 0.1 }}
+          >
             <Suspense
               fallback={
                 <div
@@ -137,7 +205,7 @@ export function HeroSection({ onExit }: HeroSectionProps) {
             >
               <NeuralBrainCanvas />
             </Suspense>
-          </div>
+          </motion.div>
 
           {/* Hero Text Content */}
           <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
@@ -172,7 +240,7 @@ export function HeroSection({ onExit }: HeroSectionProps) {
               }}
             >
               <TypewriterText
-                words={["Medicine", "AI", "Innovation", "Healthcare"]}
+                words={["Medicine", "AI", "Educator"]}
                 typingSpeed={100}
                 deletingSpeed={50}
                 pauseDuration={2000}
@@ -197,33 +265,36 @@ export function HeroSection({ onExit }: HeroSectionProps) {
               >
                 Contact Dr. Dave
               </button>
-              {/* Scroll to About Button */}
-              <button
-                onClick={() => {
-                  setShowHero(false);
-                }}
-                className="flex flex-col items-center gap-2 text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-all duration-300 group"
-              >
-                <span className="text-sm font-medium">
-                  Learn More About Dr. Dave
-                </span>
-                <div className="w-6 h-6 border-2 border-current rounded-full flex items-center justify-center group-hover:animate-bounce">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-3 w-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                    />
-                  </svg>
-                </div>
-              </button>
+              {/* Scroll Progress Indicator */}
+              <div className="flex flex-col items-center gap-4">
+                <button
+                  onClick={() => {
+                    console.log("Manual transition triggered");
+                    setShowHero(false);
+                  }}
+                  className="flex flex-col items-center gap-2 text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-all duration-300 group cursor-pointer"
+                >
+                  <span className="text-sm font-medium">
+                    Zoom into the brain or click here to continue
+                  </span>
+                  <div className="w-6 h-6 border-2 border-current rounded-full flex items-center justify-center group-hover:animate-bounce">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-3 w-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </motion.section>
