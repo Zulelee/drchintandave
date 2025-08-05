@@ -2,10 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export const FloatingNavbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,33 +48,56 @@ export const FloatingNavbar: React.FC = () => {
           <div className="hidden md:flex items-center transition-all duration-300 space-x-6">
             <a
               href="/credentials"
-              className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
+              className={`transition-colors duration-200 text-md font-medium relative ${
+                pathname === "/credentials"
+                  ? "text-[var(--dark-blue)]"
+                  : "text-[var(--text-medium)] hover:text-[var(--dark-blue)]"
+              }`}
             >
               Credentials
+              {pathname === "/credentials" && (
+                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
+              )}
             </a>
-            <a
+            {/* <a
               href="/consulting"
-              className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
+              className={`transition-colors duration-200 text-md font-medium relative ${
+                pathname === "/consulting"
+                  ? "text-[var(--dark-blue)]"
+                  : "text-[var(--text-medium)] hover:text-[var(--dark-blue)]"
+              }`}
             >
               Consulting
-            </a>
+              {pathname === "/consulting" && (
+                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
+              )}
+            </a> */}
             <a
               href="/being-human"
-              className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
+              className={`transition-colors duration-200 text-md font-medium relative ${
+                pathname === "/being-human"
+                  ? "text-[var(--dark-blue)]"
+                  : "text-[var(--text-medium)] hover:text-[var(--dark-blue)]"
+              }`}
             >
               Being Human
+              {pathname === "/being-human" && (
+                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
+              )}
             </a>
             <a
               href="/media"
-              className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-md font-medium"
+              className={`transition-colors duration-200 text-md font-medium relative ${
+                pathname === "/media"
+                  ? "text-[var(--dark-blue)]"
+                  : "text-[var(--text-medium)] hover:text-[var(--dark-blue)]"
+              }`}
             >
               Media
+              {pathname === "/media" && (
+                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
+              )}
             </a>
-
-            {/* CTA Button */}
-            <button className="bg-[var(--dark-blue)] hover:bg-[var(--dark-blue-light)] text-white font-medium transition-all duration-200 shadow-md rounded-full px-4 py-2 text-md">
-              Book Consultation
-            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -118,33 +143,56 @@ export const FloatingNavbar: React.FC = () => {
         <div className="flex flex-col space-y-4 px-8">
           <a
             href="/credentials"
-            className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
+            className={`transition-colors duration-200 text-sm font-medium relative ${
+              pathname === "/credentials"
+                ? "text-[var(--dark-blue)]"
+                : "text-[var(--text-medium)] hover:text-[var(--dark-blue)]"
+            }`}
           >
             Credentials
+            {pathname === "/credentials" && (
+              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
+            )}
           </a>
           <a
             href="/consulting"
-            className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
+            className={`transition-colors duration-200 text-sm font-medium relative ${
+              pathname === "/consulting"
+                ? "text-[var(--dark-blue)]"
+                : "text-[var(--text-medium)] hover:text-[var(--dark-blue)]"
+            }`}
           >
             Consulting
+            {pathname === "/consulting" && (
+              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
+            )}
           </a>
           <a
             href="/being-human"
-            className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
+            className={`transition-colors duration-200 text-sm font-medium relative ${
+              pathname === "/being-human"
+                ? "text-[var(--dark-blue)]"
+                : "text-[var(--text-medium)] hover:text-[var(--dark-blue)]"
+            }`}
           >
             Being Human
+            {pathname === "/being-human" && (
+              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
+            )}
           </a>
           <a
             href="/media"
-            className="text-[var(--text-medium)] hover:text-[var(--dark-blue)] transition-colors duration-200 text-sm font-medium"
+            className={`transition-colors duration-200 text-sm font-medium relative ${
+              pathname === "/media"
+                ? "text-[var(--dark-blue)]"
+                : "text-[var(--text-medium)] hover:text-[var(--dark-blue)]"
+            }`}
           >
             Media
+            {pathname === "/media" && (
+              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
+            )}
           </a>
-
-          {/* Mobile CTA Button */}
-          <button className="bg-[var(--dark-blue)] hover:bg-[var(--dark-blue-light)] text-white font-medium transition-all duration-200 shadow-md rounded-full py-2 text-sm w-full">
-            Book Consultation
-          </button>
         </div>
       </div>
     </nav>

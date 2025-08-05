@@ -52,7 +52,6 @@ export default function Home() {
         transition={{ duration: 1, ease: [0.4, 0.8, 0.2, 1] }}
       >
         <AboutSection />
-        <DemoMasonry />
         <StandForSection />
         <ConsultingSection />
         <YouTubeSection />

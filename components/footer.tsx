@@ -49,12 +49,12 @@ export const Footer = () => {
               >
                 Credentials
               </a>
-              <a
+              {/* <a
                 href="/consulting"
                 className="block text-gray-300 hover:text-white transition-colors duration-300 text-sm"
               >
                 Consulting
-              </a>
+              </a> */}
               <a
                 href="/being-human"
                 className="block text-gray-300 hover:text-white transition-colors duration-300 text-sm"

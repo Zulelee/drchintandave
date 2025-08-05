@@ -80,7 +80,7 @@ export default function BeingHumanPage() {
       </section>
 
       {/* Hero Section */}
-      <section className="relative z-10 pb-20 px-4">
+      <section className="relative z-10 pb-8 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -109,13 +109,163 @@ export default function BeingHumanPage() {
               <span>By Chintan Dave, BSc., MD</span>
             </div>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Book Preview Card */}
+      {/* Preface Section */}
+      <section className="relative z-10 pb-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="grid lg:grid-cols-2 gap-8"
+          >
+            {/* Left Card - Preface */}
+            <div
+              className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border h-fit"
+              style={{
+                background: "rgba(255, 255, 255, 0.15)",
+                borderColor: "rgba(255, 255, 255, 0.2)",
+                boxShadow: `
+                  0 8px 32px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                `,
+              }}
+            >
+              <h2 className="text-3xl font-bold text-[var(--dark-blue)] mb-8 text-center">
+                Preface
+              </h2>
+
+              <div className="space-y-6 text-[var(--dark-blue)]/90 leading-relaxed">
+                <p>
+                  The age of information and technology is ending. The age of
+                  Artificial Intelligence (AI) is approaching. Rapidly. As AI
+                  systems become increasingly powerful, able to perform
+                  exponentially complex computations, execute logical reasoning,
+                  and solve real world problems that many humans dedicate their
+                  lives to, such as cancer, heart disease, longevity, space
+                  travel, among countless others, what will the humans do? Most
+                  of our daily activities and work revolve around manual labor,
+                  logical thinking, and computation, at least for majority of
+                  the world&apos;s population. In a world where AI is orders of
+                  magnitude more effective than humans in these tasks, what will
+                  be the use of humans? Will the AI slowly assume control as it
+                  is better equipped to make the most probabilistic decisions,
+                  something that humans struggle with due to our wiring of
+                  emotions and feelings? If AI ends up running the economic
+                  system, the medical and research systems, as well as
+                  performing majority of the manual labor work, will humans
+                  become obsolete?
+                </p>
+
+                <p>
+                  Humanity&apos;s run in with an AGI (Artificial General
+                  Intelligence) is an unavoidable part of the human evolution
+                  story. What remains to be seen is how society and the future
+                  of humanity will be shaped with the emergence of super
+                  intelligent AI. Will AI view us how we view lower species,
+                  such as ants and primates, whose needs we have relegated to
+                  serve our own needs and our entertainment? Do we simply become
+                  subservient to the goals of AI? What if their goals do not
+                  align with humanity&apos;s interest? Will AI ever attain full
+                  consciousness? How will we know if AI is conscious since we
+                  cannot even agree on a universal definition or come up with a
+                  way to measure/test it? What will be the purpose of human
+                  beings in this age? How can a thriving and peaceful society be
+                  created? Can we successfully balance the strengths offered by
+                  AI with the strengths inherent in humans to create a peaceful
+                  and thriving society?
+                </p>
+
+                <p>
+                  These are some of the big questions I answer in this book. By
+                  combining scientific research in the field of AI, insights
+                  about human nature and suffering from my experience as a
+                  physician in dealing with death and disease in the Intensive
+                  Care Units (ICUs), and my lifelong dedication towards
+                  spiritual principles, I offer a vision of what future humanity
+                  can create as we learn to consciously navigate through our
+                  current phase in evolution. From research in quantum
+                  mechanics, study of consciousness, human psychology,
+                  evolutionary biology, and spirituality, we will explore
+                  underlying truths and principles that may help us create a
+                  blueprint on how to consciously guide the next step of human
+                  evolution. We will further explore what pitfalls humanity has
+                  fallen into time and time again and how we need to prepare for
+                  such pitfalls as we co-create the new artificial general
+                  intelligence (AGI).
+                </p>
+              </div>
+            </div>
+
+            {/* Right Card - 4 Main Theses */}
+            <div
+              className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border"
+              style={{
+                background: "rgba(255, 255, 255, 0.15)",
+                borderColor: "rgba(255, 255, 255, 0.2)",
+                boxShadow: `
+                  0 8px 32px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                `,
+              }}
+            >
+              <h2 className="text-3xl font-bold text-[var(--dark-blue)] mb-8 text-center">
+                4 Main Theses
+              </h2>
+              <p className="text-lg text-[var(--dark-blue)]/70 mb-8 text-center">
+                Exploring consciousness, evolution, and the future of humanity
+              </p>
+
+              <div className="space-y-6">
+                {mainTheses.map((thesis, index) => {
+                  const Icon = thesis.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                      className="backdrop-blur-2xl rounded-2xl p-6 shadow-lg border"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.1)",
+                        borderColor: "rgba(255, 255, 255, 0.15)",
+                        boxShadow: `
+                          0 4px 16px rgba(0, 0, 0, 0.05),
+                          inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                        `,
+                      }}
+                    >
+                      <div className="flex items-center space-x-4 mb-4">
+                        <div className="p-2 bg-[var(--accent-blue)]/20 rounded-full">
+                          <Icon className="w-6 h-6 text-[var(--accent-blue)]" />
+                        </div>
+                        <h3 className="text-lg font-bold text-[var(--dark-blue)]">
+                          {thesis.title}
+                        </h3>
+                      </div>
+
+                      <p className="text-[var(--dark-blue)]/90 leading-relaxed text-sm">
+                        {thesis.description}
+                      </p>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Book Preview Card */}
+      <section className="relative z-10 pb-20 px-4">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border max-w-4xl mx-auto mb-16"
+            className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border max-w-4xl mx-auto"
             style={{
               background: "rgba(255, 255, 255, 0.15)",
               borderColor: "rgba(255, 255, 255, 0.2)",
@@ -210,144 +360,6 @@ export default function BeingHumanPage() {
               </div>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Preface Section */}
-      <section className="relative z-10 pb-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border"
-            style={{
-              background: "rgba(255, 255, 255, 0.15)",
-              borderColor: "rgba(255, 255, 255, 0.2)",
-              boxShadow: `
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1)
-              `,
-            }}
-          >
-            <h2 className="text-3xl font-bold text-[var(--dark-blue)] mb-8 text-center">
-              Preface
-            </h2>
-
-            <div className="space-y-6 text-[var(--dark-blue)]/90 leading-relaxed">
-              <p>
-                The age of information and technology is ending. The age of
-                Artificial Intelligence (AI) is approaching. Rapidly. As AI
-                systems become increasingly powerful, able to perform
-                exponentially complex computations, execute logical reasoning,
-                and solve real world problems that many humans dedicate their
-                lives to, such as cancer, heart disease, longevity, space
-                travel, among countless others, what will the humans do? Most of
-                our daily activities and work revolve around manual labor,
-                logical thinking, and computation, at least for majority of the
-                world&apos;s population. In a world where AI is orders of
-                magnitude more effective than humans in these tasks, what will
-                be the use of humans? Will the AI slowly assume control as it is
-                better equipped to make the most probabilistic decisions,
-                something that humans struggle with due to our wiring of
-                emotions and feelings? If AI ends up running the economic
-                system, the medical and research systems, as well as performing
-                majority of the manual labor work, will humans become obsolete?
-              </p>
-
-              <p>
-                Humanity&apos;s run in with an AGI (Artificial General
-                Intelligence) is an unavoidable part of the human evolution
-                story. What remains to be seen is how society and the future of
-                humanity will be shaped with the emergence of super intelligent
-                AI. Will AI view us how we view lower species, such as ants and
-                primates, whose needs we have relegated to serve our own needs
-                and our entertainment? Do we simply become subservient to the
-                goals of AI? What if their goals do not align with
-                humanity&apos;s interest? Will AI ever attain full
-                consciousness? How will we know if AI is conscious since we
-                cannot even agree on a universal definition or come up with a
-                way to measure/test it? What will be the purpose of human beings
-                in this age? How can a thriving and peaceful society be created?
-                Can we successfully balance the strengths offered by AI with the
-                strengths inherent in humans to create a peaceful and thriving
-                society?
-              </p>
-
-              <p>
-                These are some of the big questions I answer in this book. By
-                combining scientific research in the field of AI, insights about
-                human nature and suffering from my experience as a physician in
-                dealing with death and disease in the Intensive Care Units
-                (ICUs), and my lifelong dedication towards spiritual principles,
-                I offer a vision of what future humanity can create as we learn
-                to consciously navigate through our current phase in evolution.
-                From research in quantum mechanics, study of consciousness,
-                human psychology, evolutionary biology, and spirituality, we
-                will explore underlying truths and principles that may help us
-                create a blueprint on how to consciously guide the next step of
-                human evolution. We will further explore what pitfalls humanity
-                has fallen into time and time again and how we need to prepare
-                for such pitfalls as we co-create the new artificial general
-                intelligence (AGI).
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Main Theses Section */}
-      <section className="relative z-10 pb-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-[var(--dark-blue)] mb-4">
-              4 Main Theses of Book
-            </h2>
-            <p className="text-lg text-[var(--dark-blue)]/70">
-              Exploring consciousness, evolution, and the future of humanity
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {mainTheses.map((thesis, index) => {
-              const Icon = thesis.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  className="backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border"
-                  style={{
-                    background: "rgba(255, 255, 255, 0.15)",
-                    borderColor: "rgba(255, 255, 255, 0.2)",
-                    boxShadow: `
-                      0 8px 32px rgba(0, 0, 0, 0.1),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.1)
-                    `,
-                  }}
-                >
-                  <div className="flex items-center space-x-4 mb-6">
-                    <div className="p-3 bg-[var(--accent-blue)]/20 rounded-full">
-                      <Icon className="w-8 h-8 text-[var(--accent-blue)]" />
-                    </div>
-                    <h3 className="text-xl font-bold text-[var(--dark-blue)]">
-                      {thesis.title}
-                    </h3>
-                  </div>
-
-                  <p className="text-[var(--dark-blue)]/90 leading-relaxed">
-                    {thesis.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
         </div>
       </section>
 
