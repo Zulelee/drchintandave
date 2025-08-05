@@ -93,15 +93,21 @@ export default function BeingHumanPage() {
               style={{
                 color: "var(--dark-blue)",
                 textShadow: `
-                  2px 2px 0px var(--dark-blue-light),
-                  4px 4px 0px rgba(26, 54, 93, 0.3),
-                  6px 6px 15px rgba(26, 54, 93, 0.2)
+                  2px 2px 0px #3182ce,
+                  4px 4px 0px #38b2ac,
+                  6px 6px 15px #38b2ac
                 `,
               }}
             >
               Being Human in the Age of AI
             </h1>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--accent-blue)] mb-6">
+            <h2
+              className="text-2xl sm:text-3xl font-semibold text-[var(--accent-blue)] mb-6"
+              style={{
+                textShadow: `0 0 1px var(--dark-blue),
+                        0 0 20px #ffffff`,
+              }}
+            >
               Co-Creating a Better Future
             </h2>
             <div className="flex items-center justify-center space-x-4 text-[var(--dark-blue)]/70">

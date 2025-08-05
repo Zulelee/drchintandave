@@ -53,19 +53,19 @@ export function HeroSection({ onExit }: HeroSectionProps) {
       if (e.ctrlKey || e.metaKey) return; // ignore browser zoom
       e.preventDefault();
 
-      // Increase scale on scroll
+      // Increase scale on scroll down
       console.log(`Scroll delta: ${e.deltaY}`);
       setScale((prevScale) => {
-        const newScale = prevScale + e.deltaY * -0.01; // Increased multiplier
-        const clampedScale = Math.max(1, Math.min(1.5, newScale));
+        const newScale = prevScale + e.deltaY * -0.015; // Faster zoom to handle fast scrolling
+        const clampedScale = Math.max(1, Math.min(4.0, newScale)); // Higher max scale
         console.log(`Previous scale: ${prevScale}, New scale: ${clampedScale}`);
 
         // Calculate progress for visual indicator (0 to 1)
-        const progress = Math.max(0, Math.min(1, (clampedScale - 1) / 0.5));
+        const progress = Math.max(0, Math.min(1, (clampedScale - 1) / 3.0));
         setScrollProgress(progress);
 
-        // Auto-transition when scale reaches 1.5 (50% zoom)
-        if (clampedScale >= 1.5) {
+        // Auto-transition when scale reaches 3.2 (220% zoom) - higher threshold for slower transition
+        if (clampedScale >= 3.2) {
           console.log("Zoom threshold reached, transitioning to main page...");
           setShowHero(false);
         }
@@ -164,19 +164,19 @@ export function HeroSection({ onExit }: HeroSectionProps) {
             console.log("Direct onWheel event detected!");
             e.preventDefault();
             setScale((prevScale) => {
-              const newScale = prevScale + e.deltaY * -0.01;
-              const clampedScale = Math.max(1, Math.min(3.0, newScale));
+              const newScale = prevScale + e.deltaY * -0.015; // Faster zoom to handle fast scrolling
+              const clampedScale = Math.max(1, Math.min(4.0, newScale)); // Higher max scale
               console.log(
                 `Direct wheel - Previous: ${prevScale}, New: ${clampedScale}`
               );
 
               const progress = Math.max(
                 0,
-                Math.min(1, (clampedScale - 1) / 2.0)
+                Math.min(1, (clampedScale - 1) / 3.0)
               );
               setScrollProgress(progress);
 
-              if (clampedScale >= 3.0) {
+              if (clampedScale >= 3.2) {
                 console.log("Direct wheel - Transitioning to main page...");
                 setShowHero(false);
               }
@@ -216,10 +216,9 @@ export function HeroSection({ onExit }: HeroSectionProps) {
                 style={{
                   color: "var(--dark-blue)",
                   textShadow: `
-                    0 0 2px #3182ce,
-                    0 0 4px #38b2ac,
-                    0 0 6px #3182ce,
-                    0 0 8px #38b2ac
+                    2px 2px 0px #3182ce,
+                4px 4px 0px #38b2ac,
+                6px 6px 15px #38b2ac
                   `,
                   letterSpacing: "-0.02em",
                 }}
@@ -234,10 +233,10 @@ export function HeroSection({ onExit }: HeroSectionProps) {
                 color: "var(--accent-blue)",
                 textShadow: `
               2px 2px 0px var(--dark-blue),
-              4px 4px 0px rgba(26, 54, 93, 0.4),
-              6px 6px 15px rgba(26, 54, 93, 0.3),
-              0px 0px 20px rgba(49, 130, 206, 0.5)
-            `,
+              4px 4px 0px #38b2ac,
+              6px 6px 0px #ffffff,
+              8px 8px 15px #ffffff
+              `,
               }}
             >
               <TypewriterText
@@ -252,16 +251,20 @@ export function HeroSection({ onExit }: HeroSectionProps) {
               <button
                 className="px-12 py-4 text-xl font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 style={{
-                  backgroundColor: "var(--dark-blue)",
+                  backgroundColor: "#38b2ac",
                   color: "white",
-                  border: "2px solid var(--dark-blue-light)",
+                  boxShadow:
+                    "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor =
-                    "var(--dark-blue-light)";
+                  e.currentTarget.style.backgroundColor = "#38b2ac";
+                  e.currentTarget.style.boxShadow =
+                    "inset 0 4px 8px rgba(49, 130, 206, 0.4), inset 0 8px 16px rgba(49, 130, 206, 0.3), inset 0 16px 32px rgba(49, 130, 206, 0.2)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "var(--dark-blue)";
+                  e.currentTarget.style.backgroundColor = "#38b2ac";
+                  e.currentTarget.style.boxShadow =
+                    "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)";
                 }}
               >
                 Contact Dr. Dave

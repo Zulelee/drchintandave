@@ -50,9 +50,9 @@ export const YouTubeSection = () => {
             style={{
               color: "var(--dark-blue)",
               textShadow: `
-                2px 2px 0px var(--dark-blue-light),
-                4px 4px 0px rgba(26, 54, 93, 0.3),
-                6px 6px 15px rgba(26, 54, 93, 0.2)
+                  2px 2px 0px #3182ce,
+                  4px 4px 0px #38b2ac,
+                  6px 6px 15px #38b2ac
               `,
             }}
           >
@@ -68,19 +68,14 @@ export const YouTubeSection = () => {
                 <h3
                   className="text-3xl font-bold text-[var(--accent-blue)]"
                   style={{
-                    textShadow:
-                      "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.5)",
+                    textShadow: `0 0 1px var(--dark-blue),
+                        0 0 20px #ffffff`,
                   }}
                 >
                   Dr. Chintan Dave
                 </h3>
               </div>
             </a>
-            {/* <p className="text-lg text-[var(--text-dark)] mb-8 max-w-2xl mx-auto">
-              Exploring the intersection of healthcare and AI through
-              educational content, clinical insights, and thought leadership
-              discussions.
-            </p> */}
           </div>
 
           {/* Featured Videos */}

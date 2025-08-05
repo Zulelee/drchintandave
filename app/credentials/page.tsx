@@ -358,9 +358,9 @@ export default function CredentialsPage() {
               style={{
                 color: "var(--dark-blue)",
                 textShadow: `
-                  2px 2px 0px var(--dark-blue-light),
-                  4px 4px 0px rgba(26, 54, 93, 0.3),
-                  6px 6px 15px rgba(26, 54, 93, 0.2)
+                  2px 2px 0px #3182ce,
+                  4px 4px 0px #38b2ac,
+                  6px 6px 15px #38b2ac
                 `,
               }}
             >
@@ -368,7 +368,13 @@ export default function CredentialsPage() {
             </h1>
 
             <div>
-              <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--accent-blue)] drop-shadow-lg">
+              <h2
+                className="text-2xl sm:text-3xl font-semibold text-[var(--accent-blue)] drop-shadow-lg"
+                style={{
+                  textShadow: `0 0 1px var(--dark-blue),
+                        0 0 20px #ffffff`,
+                }}
+              >
                 Chintan Dave, BSc., MD
               </h2>
             </div>

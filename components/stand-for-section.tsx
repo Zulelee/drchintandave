@@ -20,9 +20,9 @@ export const StandForSection = () => {
             style={{
               color: "var(--dark-blue)",
               textShadow: `
-                2px 2px 0px var(--dark-blue-light),
-                4px 4px 0px rgba(26, 54, 93, 0.3),
-                6px 6px 15px rgba(26, 54, 93, 0.2)
+                2px 2px 0px #3182ce,
+                4px 4px 0px #38b2ac,
+                6px 6px 15px #38b2ac
               `,
             }}
           >
@@ -53,16 +53,20 @@ export const StandForSection = () => {
             <button
               className="px-12 py-4 text-xl font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               style={{
-                backgroundColor: "var(--dark-blue)",
+                backgroundColor: "#38b2ac",
                 color: "white",
-                border: "2px solid var(--dark-blue-light)",
+                boxShadow:
+                  "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  "var(--dark-blue-light)";
+                e.currentTarget.style.backgroundColor = "#38b2ac";
+                e.currentTarget.style.boxShadow =
+                  "inset 0 4px 8px rgba(49, 130, 206, 0.4), inset 0 8px 16px rgba(49, 130, 206, 0.3), inset 0 16px 32px rgba(49, 130, 206, 0.2)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--dark-blue)";
+                e.currentTarget.style.backgroundColor = "#38b2ac";
+                e.currentTarget.style.boxShadow =
+                  "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)";
               }}
             >
               Being Human

@@ -33,19 +33,19 @@ export const AraHealthSection = () => {
                   style={{
                     color: "var(--dark-blue)",
                     textShadow: `
-                      2px 2px 0px var(--dark-blue-light),
-                      4px 4px 0px rgba(26, 54, 93, 0.3),
-                      6px 6px 15px rgba(26, 54, 93, 0.2)
+                     2px 2px 0px #3182ce,
+                4px 4px 0px #38b2ac,
+                6px 6px 15px #38b2ac
                     `,
                   }}
                 >
                   Ara Health
                 </h2>
                 <h3
-                  className="text-2xl sm:text-3xl font-semibold text-[var(--accent-blue)] mb-6"
+                  className="text-2xl sm:text-3xl font-semibold  text-[var(--accent-blue)] mb-6"
                   style={{
-                    textShadow:
-                      "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.5)",
+                    textShadow: `0 0 1px var(--dark-blue),
+                        0 0 20px #ffffff`,
                   }}
                 >
                   Solving Values Misalignment in Healthcare
@@ -66,16 +66,20 @@ export const AraHealthSection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
                 style={{
-                  backgroundColor: "var(--dark-blue)",
+                  backgroundColor: "#38b2ac",
                   color: "white",
-                  border: "2px solid var(--dark-blue-light)",
+                  boxShadow:
+                    "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor =
-                    "var(--dark-blue-light)";
+                  e.currentTarget.style.backgroundColor = "#38b2ac";
+                  e.currentTarget.style.boxShadow =
+                    "inset 0 4px 8px rgba(49, 130, 206, 0.4), inset 0 8px 16px rgba(49, 130, 206, 0.3), inset 0 16px 32px rgba(49, 130, 206, 0.2)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "var(--dark-blue)";
+                  e.currentTarget.style.backgroundColor = "#38b2ac";
+                  e.currentTarget.style.boxShadow =
+                    "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)";
                 }}
               >
                 Learn More

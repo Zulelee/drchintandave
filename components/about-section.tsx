@@ -35,10 +35,9 @@ export const AboutSection: React.FC = () => {
                     style={{
                       color: "var(--dark-blue)",
                       textShadow: `
-                        0 0 2px #3182ce,
-                        0 0 4px #38b2ac,
-                        0 0 6px #3182ce,
-                        0 0 8px #38b2ac
+                        2px 2px 0px #3182ce,
+                4px 4px 0px #38b2ac,
+                6px 6px 15px #38b2ac
                       `,
                     }}
                   >
