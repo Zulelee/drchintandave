@@ -2,6 +2,7 @@
 
 import React, { Suspense } from "react";
 import Image from "next/image";
+import { ImageCarousel } from "./image-carousel";
 
 export const AboutSection: React.FC = () => {
   return (
@@ -60,20 +61,24 @@ export const AboutSection: React.FC = () => {
                   While it has remained a privilege to serve others as a doctor,
                   over the years, I had a deeper feeling that I was meant to do
                   more and help more people. This is when I started sharing my
-                  stories and lessons through social media.
+                  stories and lessons through social media. I have been grateful
+                  to create an engaging community of healthcare professionals
+                  spreading curiosity and hope.
                 </p>
 
                 <p>
-                  I am now on the journey to{" "}
-                  <strong>
-                    help people think more critically, make better decisions,
-                    and contribute towards improving humanity.
-                  </strong>
+                  I am now on the journey to reduce patient suffering as much as
+                  possible through solving AI-patient value misalignment in
+                  healthcare (
+                  <b>
+                    <a href="https://arahealth.ai">arahealth.ai</a>
+                  </b>
+                  ).
                 </p>
               </div>
             </div>
 
-            {/* Dr. Dave's Photo */}
+            {/* Dr. Dave's Photo Carousel */}
             <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
               <div className="relative">
                 {/* Glassmorphic Photo Frame */}
@@ -84,12 +89,19 @@ export const AboutSection: React.FC = () => {
                     borderColor: "rgba(255, 255, 255, 0.2)",
                   }}
                 >
-                  <Image
-                    src="/image.png" // Using the existing Dr. Dave image
-                    alt="Dr. Chintan Dave"
-                    fill
-                    className="object-cover"
-                    priority
+                  <ImageCarousel
+                    images={[
+                      {
+                        src: "/image.png",
+                        alt: "Dr. Chintan Dave - Professional Headshot",
+                      },
+                      {
+                        src: "/drdave2.avif",
+                        alt: "Dr. Chintan Dave - Medical Practice",
+                      },
+                    ]}
+                    interval={4000}
+                    className="w-full h-full rounded-3xl"
                   />
                 </div>
 
