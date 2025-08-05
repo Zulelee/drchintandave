@@ -150,7 +150,7 @@ export const AboutSection: React.FC = () => {
                   {[
                     { name: "KPMG", logo: "/logos/kpmg.png" },
                     { name: "Al Jazeera", logo: "/logos/al-jazeera.png" },
-                    { name: "Global News", logo: "/logos/global-news.svg" },
+                    { name: "Global News", logo: "/logos/global-news.png" },
                     { name: "QID", logo: "/logos/qid.png" },
                     { name: "The Rounds", logo: "/logos/the-rounds.png" },
                     { name: "Databutton", logo: "/logos/databutton.png" },
@@ -158,7 +158,7 @@ export const AboutSection: React.FC = () => {
                     // Duplicate for seamless loop
                     { name: "KPMG", logo: "/logos/kpmg.png" },
                     { name: "Al Jazeera", logo: "/logos/al-jazeera.png" },
-                    { name: "Global News", logo: "/logos/global-news.svg" },
+                    { name: "Global News", logo: "/logos/global-news.png" },
                     { name: "QID", logo: "/logos/qid.png" },
                     { name: "The Rounds", logo: "/logos/the-rounds.png" },
                     { name: "Databutton", logo: "/logos/databutton.png" },
