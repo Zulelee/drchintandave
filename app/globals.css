@@ -238,3 +238,13 @@ html,
 body {
   background: var(--cream);
 }
+
+/* Logo Scrolling Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

@@ -52,6 +52,14 @@ export default function Home() {
         transition={{ duration: 1, ease: [0.4, 0.8, 0.2, 1] }}
       >
         <AboutSection />
+      </motion.div>
+
+      {/* Remaining Sections */}
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        animate={showMain ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+        transition={{ duration: 1, ease: [0.4, 0.8, 0.2, 1] }}
+      >
         <StandForSection />
         <ConsultingSection />
         <YouTubeSection />
