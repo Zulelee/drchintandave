@@ -31,14 +31,15 @@ export const AboutSection: React.FC = () => {
               <div className="space-y-6 lg:space-y-8">
                 <div>
                   <h2
-                    className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 leading-tight"
+                    className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 leading-tight relative"
                     style={{
                       color: "var(--dark-blue)",
                       textShadow: `
-                      2px 2px 0px var(--dark-blue-light),
-                      4px 4px 0px rgba(26, 54, 93, 0.3),
-                      6px 6px 15px rgba(26, 54, 93, 0.2)
-                    `,
+                        0 0 2px #3182ce,
+                        0 0 4px #38b2ac,
+                        0 0 6px #3182ce,
+                        0 0 8px #38b2ac
+                      `,
                     }}
                   >
                     Hi, I&apos;m Dr. Dave
@@ -141,7 +142,7 @@ export const AboutSection: React.FC = () => {
               {/* Scrolling Logos Container */}
               <div className="relative overflow-hidden">
                 <div
-                  className="flex items-center space-x-12"
+                  className="flex items-center space-x-16"
                   style={{
                     animation: "scroll 30s linear infinite",
                   }}
@@ -176,16 +177,16 @@ export const AboutSection: React.FC = () => {
                           <Image
                             src={company.logo}
                             alt={company.name}
-                            width={60}
-                            height={60}
+                            width={80}
+                            height={80}
                             className="object-contain"
                           />
                         ) : (
                           <Image
                             src={company.logo}
                             alt={company.name}
-                            width={60}
-                            height={60}
+                            width={80}
+                            height={80}
                             className="object-contain"
                           />
                         )}

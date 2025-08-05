@@ -245,6 +245,14 @@ body {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
+}
+
+.gradient-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px;
+  background: linear-gradient(to right, #3182ce, #38b2ac);
+  -webkit-background-clip: text;
+  background-clip: text;
 }

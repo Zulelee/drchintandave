@@ -216,10 +216,11 @@ export function HeroSection({ onExit }: HeroSectionProps) {
                 style={{
                   color: "var(--dark-blue)",
                   textShadow: `
-                4px 4px 0px var(--dark-blue-light),
-                8px 8px 0px rgba(26, 54, 93, 0.3),
-                12px 12px 20px rgba(26, 54, 93, 0.2)
-              `,
+                    0 0 2px #3182ce,
+                    0 0 4px #38b2ac,
+                    0 0 6px #3182ce,
+                    0 0 8px #38b2ac
+                  `,
                   letterSpacing: "-0.02em",
                 }}
               >

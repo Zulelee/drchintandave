@@ -48,7 +48,7 @@ export const FloatingNavbar: React.FC = () => {
           <div className="hidden md:flex items-center transition-all duration-300 space-x-6">
             <a
               href="/credentials"
-              className={`transition-colors duration-200 text-md font-medium relative ${
+              className={`transition-colors duration-200 text-md font-bold relative ${
                 pathname === "/credentials"
                   ? "text-[var(--dark-blue)]"
                   : "text-[var(--text-medium)] hover:text-[var(--dark-blue)]"
@@ -74,7 +74,7 @@ export const FloatingNavbar: React.FC = () => {
             </a> */}
             <a
               href="/being-human"
-              className={`transition-colors duration-200 text-md font-medium relative ${
+              className={`transition-colors duration-200 text-md font-bold relative ${
                 pathname === "/being-human"
                   ? "text-[var(--dark-blue)]"
                   : "text-[var(--text-medium)] hover:text-[var(--dark-blue)]"
@@ -87,7 +87,7 @@ export const FloatingNavbar: React.FC = () => {
             </a>
             <a
               href="/media"
-              className={`transition-colors duration-200 text-md font-medium relative ${
+              className={`transition-colors duration-200 text-md font-bold relative ${
                 pathname === "/media"
                   ? "text-[var(--dark-blue)]"
                   : "text-[var(--text-medium)] hover:text-[var(--dark-blue)]"

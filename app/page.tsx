@@ -11,7 +11,7 @@ import { StandForSection } from "@/components/stand-for-section";
 import { YouTubeSection } from "@/components/youtube-section";
 import { ContactFormSection } from "@/components/contact-form-section";
 import { Footer } from "@/components/footer";
-import { ConsultingSection } from "@/components/consulting-section";
+import { AraHealthSection } from "@/components/ara-health-section";
 
 export default function Home() {
   const [showMain, setShowMain] = useState(false);
@@ -61,7 +61,7 @@ export default function Home() {
         transition={{ duration: 1, ease: [0.4, 0.8, 0.2, 1] }}
       >
         <StandForSection />
-        <ConsultingSection />
+        <AraHealthSection />
         <YouTubeSection />
         <ContactFormSection />
       </motion.div>
