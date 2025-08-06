@@ -15,7 +15,8 @@ export default function NeuralBrainCanvas() {
 
     // Scene setup
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xf8f5f0); // Light theme cream background
+    // scene.background = new THREE.Color(0xf8f5f0); // Light theme cream background
+    scene.background = null; // Transparent background
     sceneRef.current = scene;
 
     // Camera setup
@@ -211,21 +212,12 @@ export default function NeuralBrainCanvas() {
       }
     };
 
-    const handleWheel = (event: WheelEvent) => {
-      event.preventDefault();
-      const zoomSpeed = 0.1;
-      const zoomDelta = event.deltaY > 0 ? zoomSpeed : -zoomSpeed;
-
-      camera.position.z += zoomDelta;
-      // Limit zoom range - adjusted for better fit
-      camera.position.z = Math.max(5, Math.min(15, camera.position.z));
-    };
+    // Removed wheel handler to disable zoom functionality
 
     // Add event listeners
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseup", handleMouseUp);
-    window.addEventListener("wheel", handleWheel, { passive: false });
 
     // Animation loop
     const animate = () => {
@@ -302,7 +294,6 @@ export default function NeuralBrainCanvas() {
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("wheel", handleWheel);
       window.removeEventListener("resize", handleResize);
 
       if (animationIdRef.current) {
