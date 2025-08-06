@@ -41,7 +41,7 @@ export function HeroSectionMain() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen pt-28 lg:pt-0">
           {/* Left Side - Text Content */}
-          <div className="text-center lg:text-left pl-0 lg:pl-10">
+          <div className="text-center pl-0 lg:pl-10">
             {/* Main Name - Huge with Depth */}
             <motion.h1
               initial={{ opacity: 0, x: -50 }}
@@ -94,7 +94,7 @@ export function HeroSectionMain() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.6, ease: [0.4, 0.8, 0.2, 1] }}
-              className="flex flex-col items-center lg:items-start gap-6"
+              className="flex flex-col items-center  gap-6"
             >
               <button
                 onClick={() => {

@@ -19,17 +19,17 @@ export const AraHealthSection = () => {
             `,
           }}
         >
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-8"
+              className="space-y-6 lg:space-y-8 text-center "
             >
               <div>
                 <h2
-                  className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+                  className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 lg:mb-6 leading-tight"
                   style={{
                     color: "var(--dark-blue)",
                     textShadow: `
@@ -42,7 +42,7 @@ export const AraHealthSection = () => {
                   Ara Health
                 </h2>
                 <h3
-                  className="text-2xl sm:text-3xl font-semibold  text-[var(--accent-blue)] mb-6"
+                  className="text-xl sm:text-2xl lg:text-3xl font-semibold text-[var(--accent-blue)] mb-4 lg:mb-6"
                   style={{
                     textShadow: `0 0 1px var(--dark-blue),
                         0 0 20px #ffffff`,
@@ -52,7 +52,7 @@ export const AraHealthSection = () => {
                 </h3>
               </div>
 
-              <div className="space-y-6 text-lg text-[var(--text-dark)] leading-relaxed">
+              <div className="space-y-4 lg:space-y-6 text-base lg:text-lg text-[var(--text-dark)] leading-relaxed">
                 <p>
                   We&apos;re building the only patient-first AI platform
                   dedicated towards improving patient experience and outcomes by
@@ -64,7 +64,7 @@ export const AraHealthSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
                 style={{
                   backgroundColor: "#38b2ac",
                   color: "white",
@@ -91,12 +91,16 @@ export const AraHealthSection = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex justify-center lg:justify-end"
+              className="flex justify-center lg:justify-end order-first lg:order-last"
             >
               <div className="relative">
-                <a href="https://arahealth.ai" target="_blank">
+                <a
+                  href="https://arahealth.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <div
-                    className="w-80 h-80 rounded-3xl overflow-hidden backdrop-blur-md border shadow-2xl flex items-center justify-center"
+                    className="w-64 h-64 sm:w-80 sm:h-80 lg:w-80 lg:h-80 rounded-3xl overflow-hidden backdrop-blur-md border shadow-2xl flex items-center justify-center"
                     style={{
                       background: "rgba(255, 255, 255, 0.1)",
                       borderColor: "rgba(255, 255, 255, 0.2)",
@@ -105,9 +109,9 @@ export const AraHealthSection = () => {
                     <Image
                       src="/animated_logo.gif"
                       alt="Ara Health - Patient-First AI Platform"
-                      width={500}
-                      height={500}
-                      className="object-contain"
+                      width={320}
+                      height={320}
+                      className="object-contain w-full h-full"
                     />
                   </div>
                 </a>
