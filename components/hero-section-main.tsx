@@ -20,7 +20,7 @@ export function HeroSectionMain() {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-transparent select-none">
       {/* 3D Neural Brain Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 hidden lg:block">
         <Suspense
           fallback={
             <div
@@ -41,7 +41,7 @@ export function HeroSectionMain() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen pt-28 lg:pt-0">
           {/* Left Side - Text Content */}
-          <div className="text-left pl-10">
+          <div className="text-center lg:text-left pl-0 lg:pl-10">
             {/* Main Name - Huge with Depth */}
             <motion.h1
               initial={{ opacity: 0, x: -50 }}
@@ -94,10 +94,17 @@ export function HeroSectionMain() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.6, ease: [0.4, 0.8, 0.2, 1] }}
-              className="flex flex-col items-start gap-6"
+              className="flex flex-col items-center lg:items-start gap-6"
             >
               <button
-                className="px-12 py-4 text-xl font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                onClick={() => {
+                  const contactSection =
+                    document.getElementById("contact-section");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="px-12 py-4 text-xl font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
                 style={{
                   backgroundColor: "#38b2ac",
                   color: "white",
@@ -123,9 +130,9 @@ export function HeroSectionMain() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1, ease: [0.4, 0.8, 0.2, 1] }}
-                className="flex flex-col items-start gap-4"
+                className="flex flex-col items-center lg:items-start gap-4"
               >
-                <div className="flex flex-col items-start gap-2 text-[var(--text-medium)] transition-all duration-300">
+                <div className="flex flex-col items-center lg:items-start gap-2 text-[var(--text-medium)] transition-all duration-300">
                   <span className="text-sm font-medium">
                     Scroll to explore more
                   </span>
