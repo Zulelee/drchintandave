@@ -52,9 +52,9 @@ export default function HeroParticles() {
       ];
 
       for (let i = 0; i < numDots; i++) {
-        // Create small sphere dots
+        // Create smaller sphere dots
         const dotGeometry = new THREE.SphereGeometry(
-          0.02 + Math.random() * 0.03,
+          0.02 + Math.random() * 0.01,
           8,
           8
         );
