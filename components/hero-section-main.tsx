@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
 import { TypewriterText } from "./typewriter-text";
 import Image from "next/image";
 
@@ -17,24 +17,42 @@ const NeuralBrainCanvas = dynamic(() => import("./ui/neural-brain"), {
 });
 
 export function HeroSectionMain() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-transparent select-none">
+    <motion.section
+      ref={ref}
+      style={{ opacity, scale, y }}
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-transparent select-none"
+    >
       {/* 3D Neural Brain Background */}
       <div className="absolute inset-0 z-0 hidden lg:block">
-        <Suspense
-          fallback={
-            <div
-              className="w-full h-full flex items-center justify-center"
-              style={{ background: "transparent" }}
+        <div className="relative w-full h-full">
+          <div className="absolute left-20 -bottom-20 w-1/2 h-full">
+            <Suspense
+              fallback={
+                <div
+                  className="w-full h-full flex items-center justify-center"
+                  style={{ background: "transparent" }}
+                >
+                  <div className="animate-pulse text-blue-600">
+                    Loading Neural Network...
+                  </div>
+                </div>
+              }
             >
-              <div className="animate-pulse text-blue-600">
-                Loading Neural Network...
-              </div>
-            </div>
-          }
-        >
-          <NeuralBrainCanvas />
-        </Suspense>
+              <NeuralBrainCanvas />
+            </Suspense>
+          </div>
+        </div>
       </div>
 
       {/* Hero Content Container */}
@@ -124,36 +142,6 @@ export function HeroSectionMain() {
               >
                 Contact Dr. Dave
               </button>
-
-              {/* Scroll Indicator */}
-              {/* <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 1, ease: [0.4, 0.8, 0.2, 1] }}
-                className="flex flex-col items-center lg:items-start gap-4"
-              >
-                <div className="flex flex-col items-center lg:items-start gap-2 text-[var(--text-medium)] transition-all duration-300">
-                  <span className="text-sm font-medium">
-                    Scroll to explore more
-                  </span>
-                  <div className="w-6 h-6 border-2 border-current rounded-full flex items-center justify-center animate-bounce">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-3 w-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </motion.div> */}
             </motion.div>
           </div>
 
@@ -162,7 +150,7 @@ export function HeroSectionMain() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: [0.4, 0.8, 0.2, 1] }}
-            className="flex justify-center lg:justify-end relative min-h-screen"
+            className="flex justify-center lg:justify-end relative min-h-screen z-10"
           >
             <div className="absolute bottom-0 right-0 flex justify-items-end items-end h-full ">
               <Image
@@ -170,12 +158,12 @@ export function HeroSectionMain() {
                 alt="Dr. Chintan Dave - Professional Headshot"
                 width={800} // increased from 600
                 height={1000} // increased from 800
-                className="object-cover h-[90vh] "
+                className="object-cover h-[80vh] lg:h-[90vh] "
               />
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

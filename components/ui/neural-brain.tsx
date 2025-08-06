@@ -232,10 +232,10 @@ export default function NeuralBrainCanvas() {
         userRotation.y += 0.001; // Much slower continuous Y-axis rotation
       }
 
-      // Subtle pulsing effect for brain
+      // Enhanced pulsing effect for brain with deeper zoom
       const time = Date.now() * 0.001;
-      const pulse = Math.sin(time * 0.8) * 0.03 + 1;
-      brainGroup.scale.setScalar(pulse * 3); // Keep the 3x scale with pulse
+      const pulse = Math.sin(time * 0.8) * 0.08 + 1; // Increased from 0.03 to 0.08 for deeper effect
+      brainGroup.scale.setScalar(pulse * 3.5); // Increased from 3 to 3.5 for larger scale
 
       // Animate scattered dots with gentle floating motion
       const currentScatteredDots = scene.getObjectByName("scatteredDots");

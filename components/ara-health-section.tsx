@@ -25,7 +25,7 @@ export const AraHealthSection = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 lg:space-y-8 text-center "
+              className="space-y-6 lg:space-y-8 text-center"
             >
               <div>
                 <h2
