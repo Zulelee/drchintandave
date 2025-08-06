@@ -12,6 +12,7 @@ import { YouTubeSection } from "@/components/youtube-section";
 import { ContactFormSection } from "@/components/contact-form-section";
 import { Footer } from "@/components/footer";
 import { AraHealthSection } from "@/components/ara-health-section";
+import { StickySocialIcons } from "@/components/sticky-social-icons";
 
 export default function Home() {
   const [showMain, setShowMain] = useState(false);
@@ -28,6 +29,7 @@ export default function Home() {
   return (
     <main className="relative">
       <FloatingNavbar />
+      <StickySocialIcons />
 
       {/* Hero Section */}
       <HeroSection
