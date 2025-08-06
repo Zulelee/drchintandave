@@ -26,7 +26,10 @@ export const ContactFormSection = () => {
   };
 
   return (
-    <section className="relative w-full flex items-center justify-center overflow-hidden bg-transparent py-20 px-4">
+    <section
+      id="contact-section"
+      className="relative w-full flex items-center justify-center overflow-hidden bg-transparent py-20 px-4"
+    >
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl border"
