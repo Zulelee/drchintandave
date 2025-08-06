@@ -46,63 +46,7 @@ export default function NeuralBrainCanvas() {
     pointLight.position.set(0, 0, 0);
     scene.add(pointLight);
 
-    // Create scattered blue dots around the scene
-    const createScatteredDots = () => {
-      const dotGroup = new THREE.Group();
-      const numDots = 20000;
-
-      // Blue colors for light theme
-      const dotColors = [
-        0x87ceeb, // Sky blue (light)
-        0x4682b4, // Steel blue
-        0x1e90ff, // Dodger blue
-        0x0066cc, // Medium blue
-        0x003d82, // Dark blue
-        0x1a365d, // Very dark blue (theme color)
-      ];
-
-      for (let i = 0; i < numDots; i++) {
-        // Create small sphere dots
-        const dotGeometry = new THREE.SphereGeometry(
-          0.02 + Math.random() * 0.03,
-          8,
-          8
-        );
-        const colorIndex = Math.floor(Math.random() * dotColors.length);
-        const dotColor = dotColors[colorIndex];
-
-        const dotMaterial = new THREE.MeshBasicMaterial({
-          color: new THREE.Color(dotColor),
-          transparent: true,
-          opacity: 0.4 + Math.random() * 0.4,
-        });
-
-        const dot = new THREE.Mesh(dotGeometry, dotMaterial);
-
-        // Position dots randomly around the scene
-        const radius = 15 + Math.random() * 20;
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.random() * Math.PI;
-
-        dot.position.x = radius * Math.sin(phi) * Math.cos(theta);
-        dot.position.y = radius * Math.sin(phi) * Math.sin(theta);
-        dot.position.z = radius * Math.cos(phi);
-
-        // Store original position for animation
-        dot.userData = {
-          originalPosition: dot.position.clone(),
-          floatSpeed: 0.5 + Math.random() * 1.0,
-          floatOffset: Math.random() * Math.PI * 2,
-        };
-
-        dotGroup.add(dot);
-      }
-
-      return dotGroup;
-    };
-
-    const scatteredDots = createScatteredDots();
-    scene.add(scatteredDots);
+    // Removed scattered dots - will be handled in hero component
 
     // Load 3D Brain Model
     const brainGroup = new THREE.Group();
@@ -237,37 +181,7 @@ export default function NeuralBrainCanvas() {
       const pulse = Math.sin(time * 0.8) * 0.08 + 1; // Increased from 0.03 to 0.08 for deeper effect
       brainGroup.scale.setScalar(pulse * 3.5); // Increased from 3 to 3.5 for larger scale
 
-      // Animate scattered dots with gentle floating motion
-      const currentScatteredDots = scene.getObjectByName("scatteredDots");
-      if (currentScatteredDots) {
-        currentScatteredDots.children.forEach((dot) => {
-          const userData = dot.userData;
-          if (userData && userData.originalPosition) {
-            // Gentle floating animation
-            const floatY =
-              Math.sin(time * userData.floatSpeed + userData.floatOffset) * 0.5;
-            const floatX =
-              Math.cos(
-                time * userData.floatSpeed * 0.7 + userData.floatOffset
-              ) * 0.3;
-
-            dot.position.x = userData.originalPosition.x + floatX;
-            dot.position.y = userData.originalPosition.y + floatY;
-
-            // Subtle opacity pulsing
-            if (
-              dot instanceof THREE.Mesh &&
-              dot.material &&
-              "opacity" in dot.material
-            ) {
-              const baseopacity = 0.6;
-              const opacityPulse =
-                Math.sin(time * 2 + userData.floatOffset) * 0.2;
-              dot.material.opacity = baseopacity + opacityPulse;
-            }
-          }
-        });
-      }
+      // Removed scattered dots animation - will be handled in hero component
 
       renderer.render(scene, camera);
     };

@@ -6,6 +6,12 @@ import { Suspense, useRef } from "react";
 import { TypewriterText } from "./typewriter-text";
 import Image from "next/image";
 
+// Dynamically import the particles component
+const HeroParticles = dynamic(() => import("./hero-particles"), {
+  ssr: false,
+  loading: () => null,
+});
+
 // Dynamically import the 3D component to avoid SSR issues
 const NeuralBrainCanvas = dynamic(() => import("./ui/neural-brain"), {
   ssr: false,
@@ -33,6 +39,13 @@ export function HeroSectionMain() {
       style={{ opacity, scale, y }}
       className="fixed inset-0 w-full min-h-screen flex items-center justify-center overflow-hidden bg-transparent select-none z-0"
     >
+      {/* Hero Particles Background */}
+      <div className="absolute inset-0 z-0">
+        <Suspense fallback={null}>
+          <HeroParticles />
+        </Suspense>
+      </div>
+
       {/* 3D Neural Brain Background */}
       <div className="absolute inset-0 z-0 hidden lg:block">
         <div className="relative w-full h-full">
