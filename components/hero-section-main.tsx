@@ -163,15 +163,15 @@ export function HeroSectionMain() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: [0.4, 0.8, 0.2, 1] }}
-            className="flex justify-center lg:justify-end relative min-h-screen z-10"
+            className="flex justify-center lg:justify-end relative min-h-[40vh] lg:min-h-screen z-10"
           >
-            <div className="absolute bottom-0 right-0 flex justify-items-end items-end h-full ">
+            <div className="absolute bottom-0 right-0 flex justify-items-end items-end h-[50vh] lg:h-full ">
               <Image
                 src="/image.png"
                 alt="Dr. Chintan Dave - Professional Headshot"
                 width={800} // increased from 600
                 height={1000} // increased from 800
-                className="object-cover h-[80vh] lg:h-[90vh] "
+                className="object-cover h-[50vh] lg:h-[90vh] "
               />
             </div>
           </motion.div>
