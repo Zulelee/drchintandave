@@ -18,7 +18,7 @@ const NeuralBrainCanvas = dynamic(() => import("./ui/neural-brain"), {
 
 export function HeroSectionMain() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-transparent">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-transparent select-none">
       {/* 3D Neural Brain Background */}
       <div className="absolute inset-0 z-0">
         <Suspense
