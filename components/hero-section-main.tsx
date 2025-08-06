@@ -24,14 +24,14 @@ export function HeroSectionMain() {
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, 0]);
 
   return (
     <motion.section
       ref={ref}
       style={{ opacity, scale, y }}
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-transparent select-none"
+      className="fixed inset-0 w-full min-h-screen flex items-center justify-center overflow-hidden bg-transparent select-none z-0"
     >
       {/* 3D Neural Brain Background */}
       <div className="absolute inset-0 z-0 hidden lg:block">

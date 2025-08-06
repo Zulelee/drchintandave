@@ -26,6 +26,9 @@ export default function Home() {
       {/* Hero Section with Brain Canvas */}
       <HeroSectionMain />
 
+      {/* Spacer to push content over hero */}
+      <div className="h-screen"></div>
+
       {/* About Section */}
       <AboutSection />
 
