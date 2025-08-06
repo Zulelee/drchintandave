@@ -86,7 +86,7 @@ export const AboutSection: React.FC = () => {
                 <div className="relative">
                   {/* Glassmorphic Photo Frame */}
                   <div
-                    className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden backdrop-blur-md border shadow-2xl"
+                    className="w-80 h-80 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem] rounded-3xl overflow-hidden backdrop-blur-md border shadow-2xl"
                     style={{
                       background: "rgba(255, 255, 255, 0.1)",
                       borderColor: "rgba(255, 255, 255, 0.2)",
