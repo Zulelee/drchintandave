@@ -213,7 +213,7 @@ export const FloatingNavbar: React.FC = () => {
               <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
             )}
           </a>
-          <a
+          {/* <a
             href="/consulting"
             className={`transition-all duration-300 text-sm font-medium relative group ${
               pathname === "/consulting"
@@ -228,7 +228,7 @@ export const FloatingNavbar: React.FC = () => {
             {pathname === "/consulting" && (
               <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
             )}
-          </a>
+          </a> */}
           <a
             href="/being-human"
             className={`transition-all duration-300 text-sm font-medium relative group ${
