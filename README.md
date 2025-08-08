@@ -21,14 +21,24 @@ To use Vercel Blob for image storage, you need to set up the following environme
 
 ## Setup Instructions
 
-1. Create a Vercel Blob store in your Vercel dashboard
-2. Get your `BLOB_READ_WRITE_TOKEN` from the Vercel dashboard
-3. Add the environment variables to your `.env.local` file
-4. Restart your development server
+1. **Create a Vercel Blob store** in your Vercel dashboard
+2. **Get your `BLOB_READ_WRITE_TOKEN`** from the Vercel dashboard
+3. **Add the environment variables** to your `.env.local` file
+4. **Restart your development server**
+
+## Vercel Blob Integration
+
+This project uses the official `@payloadcms/storage-vercel-blob` plugin for seamless integration with Vercel Blob storage. The plugin automatically:
+
+- Handles file uploads to Vercel Blob
+- Manages file URLs and metadata
+- Supports client-side uploads (bypasses 4.5MB limit)
+- Adds random suffixes to prevent filename conflicts
+- Disables local storage automatically
 
 ## Features
 
-- Payload CMS with Vercel Blob integration for image storage
+- Payload CMS with official Vercel Blob integration
 - Next.js with App Router
 - TypeScript
 - Tailwind CSS

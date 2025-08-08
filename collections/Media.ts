@@ -1,11 +1,10 @@
 import { CollectionConfig } from "payload";
-import { uploadToBlob } from "../lib/blob-upload";
 
 export const Media: CollectionConfig = {
   slug: "media",
   upload: {
-    // We'll still use staticDir for temporary storage, but override the URL with Blob URL
-    staticDir: "../public/media",
+    // The Vercel Blob plugin will automatically handle storage
+    // No need for staticDir or custom hooks
     imageSizes: [
       {
         name: "thumbnail",
@@ -28,27 +27,6 @@ export const Media: CollectionConfig = {
     ],
     adminThumbnail: "thumbnail",
     mimeTypes: ["image/*"],
-  },
-  hooks: {
-    beforeChange: [
-      async ({ data, req }) => {
-        // If this is a new upload (not an update)
-        if (req.file) {
-          const file = req.file;
-          const buffer = file.data;
-          const filename = file.name;
-          const mimeType = file.mimetype;
-
-          // Upload to Vercel Blob
-          const blobUrl = await uploadToBlob(buffer, filename, mimeType);
-
-          // Update the data with the Blob URL
-          data.url = blobUrl;
-        }
-
-        return data;
-      },
-    ],
   },
   fields: [
     {
