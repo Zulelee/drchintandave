@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Mail, Send } from "lucide-react";
 
 export const ContactFormSection = () => {
@@ -8,6 +8,11 @@ export const ContactFormSection = () => {
     subject: "",
     message: "",
   });
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -92,109 +97,141 @@ export const ContactFormSection = () => {
           </div>
 
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
+          {!isClient ? (
+            <div className="space-y-6 animate-pulse">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <div className="h-4 bg-gray-300 rounded mb-2"></div>
+                  <div className="h-12 bg-gray-300 rounded"></div>
+                </div>
+                <div>
+                  <div className="h-4 bg-gray-300 rounded mb-2"></div>
+                  <div className="h-12 bg-gray-300 rounded"></div>
+                </div>
+              </div>
+              <div>
+                <div className="h-4 bg-gray-300 rounded mb-2"></div>
+                <div className="h-12 bg-gray-300 rounded"></div>
+              </div>
+              <div>
+                <div className="h-4 bg-gray-300 rounded mb-2"></div>
+                <div className="h-24 bg-gray-300 rounded"></div>
+              </div>
+              <div className="flex justify-center pt-6">
+                <div className="h-12 w-32 bg-gray-300 rounded-full"></div>
+              </div>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-bold text-[var(--text-dark)] mb-2"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border-2 border-[var(--dark-blue)] rounded-lg text-[var(--text-dark)] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-blue)] focus:border-[var(--accent-blue)] transition-all duration-300 font-medium"
+                    placeholder="Your name"
+                    suppressHydrationWarning={true}
+                    autoComplete="name"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-bold text-[var(--text-dark)] mb-2"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border-2 border-[var(--dark-blue)] rounded-lg text-[var(--text-dark)] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-blue)] focus:border-[var(--accent-blue)] transition-all duration-300 font-medium"
+                    placeholder="your.email@example.com"
+                    suppressHydrationWarning={true}
+                    autoComplete="email"
+                  />
+                </div>
+              </div>
+
               <div>
                 <label
-                  htmlFor="name"
+                  htmlFor="subject"
                   className="block text-sm font-bold text-[var(--text-dark)] mb-2"
                 >
-                  Name
+                  Subject
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border-2 border-[var(--dark-blue)] rounded-lg text-[var(--text-dark)] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-blue)] focus:border-[var(--accent-blue)] transition-all duration-300 font-medium"
-                  placeholder="Your name"
+                  placeholder="What's this about?"
+                  suppressHydrationWarning={true}
                 />
               </div>
+
               <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="message"
                   className="block text-sm font-bold text-[var(--text-dark)] mb-2"
                 >
-                  Email
+                  Leave me a message, your ideas, thoughts, or criticisms...
                 </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border-2 border-[var(--dark-blue)] rounded-lg text-[var(--text-dark)] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-blue)] focus:border-[var(--accent-blue)] transition-all duration-300 font-medium"
-                  placeholder="your.email@example.com"
+                  rows={6}
+                  className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border-2 border-[var(--dark-blue)] rounded-lg text-[var(--text-dark)] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-blue)] focus:border-[var(--accent-blue)] transition-all duration-300 resize-vertical font-medium"
+                  placeholder="Share your thoughts, ideas, or feedback..."
+                  suppressHydrationWarning={true}
                 />
               </div>
-            </div>
 
-            <div>
-              <label
-                htmlFor="subject"
-                className="block text-sm font-bold text-[var(--text-dark)] mb-2"
-              >
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border-2 border-[var(--dark-blue)] rounded-lg text-[var(--text-dark)] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-blue)] focus:border-[var(--accent-blue)] transition-all duration-300 font-medium"
-                placeholder="What's this about?"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-bold text-[var(--text-dark)] mb-2"
-              >
-                Leave me a message, your ideas, thoughts, or criticisms...
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={6}
-                className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border-2 border-[var(--dark-blue)] rounded-lg text-[var(--text-dark)] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-blue)] focus:border-[var(--accent-blue)] transition-all duration-300 resize-vertical font-medium"
-                placeholder="Share your thoughts, ideas, or feedback..."
-              />
-            </div>
-
-            <div className="flex justify-center pt-6">
-              <button
-                type="submit"
-                className="flex items-center px-8 py-4 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                style={{
-                  backgroundColor: "#38b2ac",
-                  boxShadow:
-                    "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#38b2ac";
-                  e.currentTarget.style.boxShadow =
-                    "inset 0 4px 8px rgba(49, 130, 206, 0.4), inset 0 8px 16px rgba(49, 130, 206, 0.3), inset 0 16px 32px rgba(49, 130, 206, 0.2)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#38b2ac";
-                  e.currentTarget.style.boxShadow =
-                    "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)";
-                }}
-              >
-                <Send className="w-5 h-5 mr-2" />
-                Send Message
-              </button>
-            </div>
-          </form>
+              <div className="flex justify-center pt-6">
+                <button
+                  type="submit"
+                  className="flex items-center px-8 py-4 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  style={{
+                    backgroundColor: "#38b2ac",
+                    boxShadow:
+                      "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#38b2ac";
+                    e.currentTarget.style.boxShadow =
+                      "inset 0 4px 8px rgba(49, 130, 206, 0.4), inset 0 8px 16px rgba(49, 130, 206, 0.3), inset 0 16px 32px rgba(49, 130, 206, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#38b2ac";
+                    e.currentTarget.style.boxShadow =
+                      "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)";
+                  }}
+                >
+                  <Send className="w-5 h-5 mr-2" />
+                  Send Message
+                </button>
+              </div>
+            </form>
+          )}
         </div>
       </div>
     </section>
