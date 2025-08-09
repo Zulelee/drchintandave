@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Mail, Send } from "lucide-react";
+import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
 
 export const ContactFormSection = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +9,10 @@ export const ContactFormSection = () => {
     message: "",
   });
   const [isClient, setIsClient] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   useEffect(() => {
     setIsClient(true);
@@ -23,11 +27,47 @@ export const ContactFormSection = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // You can add email sending logic here or integrate with a service like EmailJS
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch(process.env.NEXT_PUBLIC_FORM_URL, {
+        method: "POST",
+        mode: "no-cors", // Required for Google Apps Script
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      // Since we're using no-cors, we can't check the response status
+      // We'll assume success if no error is thrown
+      setSubmitStatus("success");
+
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 3000);
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -206,29 +246,65 @@ export const ContactFormSection = () => {
                 />
               </div>
 
-              <div className="flex justify-center pt-6">
+              <div className="flex flex-col items-center pt-6 space-y-4">
                 <button
                   type="submit"
-                  className="flex items-center px-8 py-4 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  disabled={isSubmitting}
+                  className={`flex items-center px-8 py-4 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${
+                    isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                   style={{
                     backgroundColor: "#38b2ac",
                     boxShadow:
                       "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#38b2ac";
-                    e.currentTarget.style.boxShadow =
-                      "inset 0 4px 8px rgba(49, 130, 206, 0.4), inset 0 8px 16px rgba(49, 130, 206, 0.3), inset 0 16px 32px rgba(49, 130, 206, 0.2)";
+                    if (!isSubmitting) {
+                      e.currentTarget.style.backgroundColor = "#38b2ac";
+                      e.currentTarget.style.boxShadow =
+                        "inset 0 4px 8px rgba(49, 130, 206, 0.4), inset 0 8px 16px rgba(49, 130, 206, 0.3), inset 0 16px 32px rgba(49, 130, 206, 0.2)";
+                    }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "#38b2ac";
-                    e.currentTarget.style.boxShadow =
-                      "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)";
+                    if (!isSubmitting) {
+                      e.currentTarget.style.backgroundColor = "#38b2ac";
+                      e.currentTarget.style.boxShadow =
+                        "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)";
+                    }
                   }}
                 >
-                  <Send className="w-5 h-5 mr-2" />
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5 mr-2" />
+                      Send Message
+                    </>
+                  )}
                 </button>
+
+                {/* Success Message */}
+                {submitStatus === "success" && (
+                  <div className="flex items-center text-green-600 bg-green-100 px-4 py-2 rounded-lg">
+                    <CheckCircle className="w-5 h-5 mr-2" />
+                    <span className="font-medium">
+                      Message sent successfully!
+                    </span>
+                  </div>
+                )}
+
+                {/* Error Message */}
+                {submitStatus === "error" && (
+                  <div className="flex items-center text-red-600 bg-red-100 px-4 py-2 rounded-lg">
+                    <AlertCircle className="w-5 h-5 mr-2" />
+                    <span className="font-medium">
+                      Failed to send message. Please try again.
+                    </span>
+                  </div>
+                )}
               </div>
             </form>
           )}
