@@ -58,10 +58,10 @@ export const FloatingNavbar: React.FC = () => {
               <span className="relative">
                 Credentials
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-blue)] transition-all duration-300 group-hover:w-full rounded-full"></span>
+                {pathname === "/credentials" && (
+                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-[var(--accent-blue)] rounded-full" />
+                )}
               </span>
-              {pathname === "/credentials" && (
-                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
-              )}
             </a>
             {/* <a
               href="/consulting"
@@ -90,10 +90,10 @@ export const FloatingNavbar: React.FC = () => {
               <span className="relative">
                 Being Human
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-blue)] transition-all duration-300 group-hover:w-full rounded-full"></span>
+                {pathname === "/being-human" && (
+                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-[var(--accent-blue)] rounded-full" />
+                )}
               </span>
-              {pathname === "/being-human" && (
-                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
-              )}
             </a>
             <a
               href="/media"
@@ -106,10 +106,10 @@ export const FloatingNavbar: React.FC = () => {
               <span className="relative">
                 Media
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-blue)] transition-all duration-300 group-hover:w-full rounded-full"></span>
+                {pathname === "/media" && (
+                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-[var(--accent-blue)] rounded-full" />
+                )}
               </span>
-              {pathname === "/media" && (
-                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
-              )}
             </a>
 
             {/* Social Media Icons */}
@@ -208,10 +208,10 @@ export const FloatingNavbar: React.FC = () => {
             <span className="relative">
               Credentials
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-blue)] transition-all duration-300 group-hover:w-full rounded-full"></span>
+              {pathname === "/credentials" && (
+                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-[var(--accent-blue)] rounded-full" />
+              )}
             </span>
-            {pathname === "/credentials" && (
-              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
-            )}
           </a>
           {/* <a
             href="/consulting"
@@ -240,10 +240,10 @@ export const FloatingNavbar: React.FC = () => {
             <span className="relative">
               Being Human
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-blue)] transition-all duration-300 group-hover:w-full rounded-full"></span>
+              {pathname === "/being-human" && (
+                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-[var(--accent-blue)] rounded-full" />
+              )}
             </span>
-            {pathname === "/being-human" && (
-              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
-            )}
           </a>
           <a
             href="/media"
@@ -256,10 +256,10 @@ export const FloatingNavbar: React.FC = () => {
             <span className="relative">
               Media
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-blue)] transition-all duration-300 group-hover:w-full rounded-full"></span>
+              {pathname === "/media" && (
+                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-[var(--accent-blue)] rounded-full" />
+              )}
             </span>
-            {pathname === "/media" && (
-              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-blue)] rounded-full" />
-            )}
           </a>
 
           {/* Mobile Social Media Icons */}
