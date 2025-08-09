@@ -40,7 +40,11 @@ export default function BlogCard({ post, index }: BlogCardProps) {
           {post.featuredImage && (
             <div className="mb-6 rounded-2xl overflow-hidden">
               <img
-                src={`${config.serverURL}${post.featuredImage.thumbnailURL}`}
+                src={
+                  // post.featuredImage.url ||
+                  post.featuredImage.thumbnailURL ||
+                  `${config.serverURL}${post.featuredImage.url}`
+                }
                 alt={(post.featuredImage as any).alt || post.title}
                 className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
               />

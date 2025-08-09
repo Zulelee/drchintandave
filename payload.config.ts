@@ -9,6 +9,13 @@ import { Blog } from "./collections/Blog";
 import { Media } from "./collections/Media";
 
 export default buildConfig({
+  // Server URL for media files - important for Vercel deployment
+  serverURL:
+    process.env.SERVER_URL ||
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3001"),
+
   // If you'd like to use Rich Text, pass your editor here
   editor: lexicalEditor(),
 
@@ -31,6 +38,8 @@ export default buildConfig({
       },
       // Token provided by Vercel once Blob storage is added to your Vercel project
       token: process.env.BLOB_READ_WRITE_TOKEN,
+      clientUploads: true, // Enable client uploads to bypass Vercel limits
+      addRandomSuffix: true, // Add random suffix to prevent filename conflicts
     }),
   ],
 

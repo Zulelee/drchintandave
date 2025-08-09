@@ -2,6 +2,15 @@ import { CollectionConfig } from "payload";
 
 export const Media: CollectionConfig = {
   slug: "media",
+  access: {
+    read: () => true, // Allow public read access
+    create: () => true, // Allow public create access for uploads
+    update: () => true, // Allow public update access
+    delete: () => true, // Allow public delete access
+  },
+  admin: {
+    useAsTitle: "filename",
+  },
   upload: {
     // The Vercel Blob plugin will automatically handle storage
     // No need for staticDir or custom hooks

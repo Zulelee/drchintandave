@@ -40,7 +40,11 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
       {post.featuredImage && (
         <div className="rounded-3xl overflow-hidden shadow-2xl">
           <img
-            src={`${config.serverURL}${post.featuredImage.sizes.feature.url}`}
+            src={
+              // post.featuredImage.url ||
+              post.featuredImage.sizes?.feature?.url ||
+              `${config.serverURL}${post.featuredImage.url}`
+            }
             alt={(post.featuredImage as any).alt || post.title}
             className="w-full h-64 md:h-96 object-cover"
           />

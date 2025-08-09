@@ -80,7 +80,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Blog Post */}
       <section className="relative z-10 pb-20 px-4">
         <div className="max-w-4xl mx-auto">
-          {post.content[0]}
           <BlogPostContent post={post} />
         </div>
       </section>
