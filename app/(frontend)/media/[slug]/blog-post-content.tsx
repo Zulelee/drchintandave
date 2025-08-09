@@ -3,18 +3,14 @@
 import { motion } from "framer-motion";
 import { Calendar, User, Tag, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { config } from "@/lib/config";
+import PayloadRichText from "@/components/payload-rich-text";
 
 interface BlogPostContentProps {
   post: any;
-  markdownContent: string;
 }
 
-export default function BlogPostContent({
-  post,
-  markdownContent,
-}: BlogPostContentProps) {
+export default function BlogPostContent({ post }: BlogPostContentProps) {
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",
@@ -41,17 +37,15 @@ export default function BlogPostContent({
       </div>
 
       {/* Featured Image */}
-      {post.featuredImage &&
-        typeof post.featuredImage === "object" &&
-        "url" in post.featuredImage && (
-          <div className="rounded-3xl overflow-hidden shadow-2xl">
-            <img
-              src={post.featuredImage.url as string}
-              alt={(post.featuredImage as any).alt || post.title}
-              className="w-full h-64 md:h-96 object-cover"
-            />
-          </div>
-        )}
+      {post.featuredImage && (
+        <div className="rounded-3xl overflow-hidden shadow-2xl">
+          <img
+            src={`${config.serverURL}${post.featuredImage.sizes.feature.url}`}
+            alt={(post.featuredImage as any).alt || post.title}
+            className="w-full h-64 md:h-96 object-cover"
+          />
+        </div>
+      )}
 
       {/* Post Header */}
       <div
@@ -117,84 +111,7 @@ export default function BlogPostContent({
           `,
         }}
       >
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
-            h1: ({ children }) => (
-              <h1 className="text-3xl font-bold text-[var(--dark-blue)] mb-6 mt-8 first:mt-0">
-                {children}
-              </h1>
-            ),
-            h2: ({ children }) => (
-              <h2 className="text-2xl font-bold text-[var(--dark-blue)] mb-4 mt-6">
-                {children}
-              </h2>
-            ),
-            h3: ({ children }) => (
-              <h3 className="text-xl font-bold text-[var(--dark-blue)] mb-3 mt-5">
-                {children}
-              </h3>
-            ),
-            p: ({ children }) => (
-              <p className="text-[var(--dark-blue)]/80 mb-4 leading-relaxed">
-                {children}
-              </p>
-            ),
-            ul: ({ children }) => (
-              <ul className="list-disc list-inside text-[var(--dark-blue)]/80 mb-4 space-y-2">
-                {children}
-              </ul>
-            ),
-            ol: ({ children }) => (
-              <ol className="list-decimal list-inside text-[var(--dark-blue)]/80 mb-4 space-y-2">
-                {children}
-              </ol>
-            ),
-            li: ({ children }) => (
-              <li className="text-[var(--dark-blue)]/80">{children}</li>
-            ),
-            blockquote: ({ children }) => (
-              <blockquote className="border-l-4 border-[var(--accent-blue)] pl-4 italic text-[var(--dark-blue)]/70 mb-4">
-                {children}
-              </blockquote>
-            ),
-            code: ({ children, className }) => {
-              const isInline = !className;
-              if (isInline) {
-                return (
-                  <code className="bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] px-1 py-0.5 rounded text-sm">
-                    {children}
-                  </code>
-                );
-              }
-              return (
-                <pre className="bg-[var(--dark-blue)]/5 p-4 rounded-lg overflow-x-auto mb-4">
-                  <code className="text-[var(--dark-blue)]/80">{children}</code>
-                </pre>
-              );
-            },
-            a: ({ children, href }) => (
-              <a
-                href={href}
-                className="text-[var(--accent-blue)] hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {children}
-              </a>
-            ),
-            strong: ({ children }) => (
-              <strong className="font-bold text-[var(--dark-blue)]">
-                {children}
-              </strong>
-            ),
-            em: ({ children }) => (
-              <em className="italic text-[var(--dark-blue)]/90">{children}</em>
-            ),
-          }}
-        >
-          {markdownContent}
-        </ReactMarkdown>
+        <PayloadRichText content={post.content} />
       </div>
 
       {/* Back to Media Footer */}

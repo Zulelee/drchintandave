@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Calendar, User, Tag, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { config } from "@/lib/config";
 
 interface BlogCardProps {
   post: any;
@@ -36,17 +37,15 @@ export default function BlogCard({ post, index }: BlogCardProps) {
             `,
           }}
         >
-          {post.featuredImage &&
-            typeof post.featuredImage === "object" &&
-            "url" in post.featuredImage && (
-              <div className="mb-6 rounded-2xl overflow-hidden">
-                <img
-                  src={post.featuredImage.url as string}
-                  alt={(post.featuredImage as any).alt || post.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            )}
+          {post.featuredImage && (
+            <div className="mb-6 rounded-2xl overflow-hidden">
+              <img
+                src={`${config.serverURL}${post.featuredImage.thumbnailURL}`}
+                alt={(post.featuredImage as any).alt || post.title}
+                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          )}
 
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-[var(--dark-blue)] line-clamp-2 group-hover:text-[var(--accent-blue)] transition-colors">

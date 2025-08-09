@@ -66,13 +66,13 @@ export default async function MediaPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <h1
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
               style={{
                 color: "var(--dark-blue)",
                 textShadow: `
-                  2px 2px 0px var(--dark-blue-light),
-                  4px 4px 0px rgba(26, 54, 93, 0.3),
-                  6px 6px 15px rgba(26, 54, 93, 0.2)
+                  2px 2px 0px #3182ce,
+                  4px 4px 0px #38b2ac,
+                  6px 6px 15px #38b2ac
                 `,
               }}
             >
