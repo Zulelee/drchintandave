@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, User, Tag, ArrowRight } from "lucide-react";
+import { Calendar, User, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { config } from "@/lib/config";
 
@@ -74,29 +74,6 @@ export default function BlogCard({ post, index }: BlogCardProps) {
                 </span>
               </div>
             </div>
-
-            {post.tags && post.tags.length > 0 && (
-              <div className="flex items-center gap-2">
-                <Tag className="w-4 h-4 text-[var(--accent-blue)]" />
-                <div className="flex flex-wrap gap-1">
-                  {post.tags
-                    .slice(0, 2)
-                    .map((tag: string, tagIndex: number) => (
-                      <span
-                        key={tagIndex}
-                        className="px-2 py-1 bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] text-xs rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  {post.tags.length > 2 && (
-                    <span className="text-xs text-[var(--dark-blue)]/50">
-                      +{post.tags.length - 2} more
-                    </span>
-                  )}
-                </div>
-              </div>
-            )}
 
             <div className="flex items-center justify-between pt-4">
               <span className="text-[var(--accent-blue)] font-medium text-sm group-hover:underline">

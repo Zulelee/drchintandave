@@ -56,16 +56,28 @@ export const Blog: CollectionConfig = {
       required: true,
     },
     {
-      name: "tags",
-      type: "select",
-      hasMany: true,
-      options: [
-        { label: "Productivity", value: "productivity" },
-        { label: "Technology", value: "technology" },
-        { label: "Health", value: "health" },
-        { label: "Lifestyle", value: "lifestyle" },
-        { label: "Development", value: "development" },
+      name: "link",
+      type: "group",
+      fields: [
+        {
+          name: "url",
+          type: "text",
+          admin: {
+            description: "The URL to link to (e.g., https://example.com)",
+          },
+        },
+        {
+          name: "text",
+          type: "text",
+          admin: {
+            description:
+              "The text to display for the link (e.g., 'Read More', 'View Article')",
+          },
+        },
       ],
+      admin: {
+        description: "Optional external link for this blog post",
+      },
     },
     {
       name: "status",

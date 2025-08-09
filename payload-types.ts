@@ -154,7 +154,19 @@ export interface Blog {
     };
     [k: string]: unknown;
   };
-  tags?: ('productivity' | 'technology' | 'health' | 'lifestyle' | 'development')[] | null;
+  /**
+   * Optional external link for this blog post
+   */
+  link?: {
+    /**
+     * The URL to link to (e.g., https://example.com)
+     */
+    url?: string | null;
+    /**
+     * The text to display for the link (e.g., 'Read More', 'View Article')
+     */
+    text?: string | null;
+  };
   /**
    * Whether this blog post is published or still a draft
    */
@@ -304,7 +316,12 @@ export interface BlogsSelect<T extends boolean = true> {
   featuredImage?: T;
   excerpt?: T;
   content?: T;
-  tags?: T;
+  link?:
+    | T
+    | {
+        url?: T;
+        text?: T;
+      };
   status?: T;
   updatedAt?: T;
   createdAt?: T;

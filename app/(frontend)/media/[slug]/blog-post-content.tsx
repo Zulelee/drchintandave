@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, User, Tag, ArrowLeft } from "lucide-react";
+import { Calendar, User, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { config } from "@/lib/config";
 import PayloadRichText from "@/components/payload-rich-text";
@@ -86,19 +86,29 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
           </div>
         </div>
 
-        {post.tags && post.tags.length > 0 && (
+        {post.link && post.link.url && post.link.text && (
           <div className="flex items-center gap-2 mt-4">
-            <Tag className="w-4 h-4 text-[var(--accent-blue)]" />
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag: string, tagIndex: number) => (
-                <span
-                  key={tagIndex}
-                  className="px-3 py-1 bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] text-sm rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <a
+              href={post.link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] text-sm rounded-full hover:bg-[var(--accent-blue)]/20 transition-colors"
+            >
+              <span>{post.link.text}</span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
           </div>
         )}
       </div>
