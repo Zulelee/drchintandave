@@ -30,19 +30,19 @@ export const StandForSection = () => {
           </h2>
           <div className="max-w-4xl mx-auto text-lg text-[var(--text-dark)] space-y-6 text-center leading-relaxed">
             <p>
-              I believe we are at an important stage in our human history,
-              especially with the rise of Artificial Intelligence (AI). It is
-              more crucial now than ever that we, as humans, collectively take
-              responsibility for our own well-being, as we lead the AI
-              revolution in a way that it impacts humanity positively.
-            </p>
-            <p>
               I believe we are at the cusp of human evolution, which if directed
               consciously will lead to lasting prosperity, health, love, and joy
-              amongst humanity. With my extensive medical and research
+              amongst humanity. We are moving beyond natural selection to a
+              chapter in our history marked by conscious selection: we choose
+              how we evolve.
+            </p>
+            <p>
+              Humans are not the final stage of evolution, and we must choose to
+              grow with our technologies. With my extensive medical and research
               background, AI experience, as well as my lifelong pursuit of
               spirituality, my mission is to apply knowledge and technology with
-              wisdom to achieve superhuman evolution.
+              wisdom to help humanity through the next stage of evolution and
+              become an interstellar species.
             </p>
             <p className="font-semibold mt-8">
               My book &quot;Being Human In the Age of AI: Consciously Creating a
@@ -67,6 +67,9 @@ export const StandForSection = () => {
                 e.currentTarget.style.backgroundColor = "#38b2ac";
                 e.currentTarget.style.boxShadow =
                   "inset 0 2px 4px rgba(49, 130, 206, 0.3), inset 0 4px 8px rgba(49, 130, 206, 0.2), inset 0 8px 16px rgba(49, 130, 206, 0.1)";
+              }}
+              onClick={() => {
+                window.location.href = "/being-human";
               }}
             >
               Being Human

@@ -34,7 +34,7 @@ export default function Home() {
 
       {/* Remaining Sections */}
       <StandForSection />
-      <AraHealthSection />
+      {/* <AraHealthSection /> */}
       <YouTubeSection />
       <ContactFormSection />
 

@@ -70,13 +70,10 @@ export const AboutSection: React.FC = () => {
                   </p>
 
                   <p>
-                    I am now on the journey to reduce patient suffering as much
-                    as possible through solving AI-patient value misalignment in
-                    healthcare (
-                    <b>
-                      <a href="https://arahealth.ai">arahealth.ai</a>
-                    </b>
-                    ).
+                    I now pursue my love for physiology, medical research, AI,
+                    and patient care through entrepreneurship and social media.
+                    I am committed to building solutions that improve human
+                    quality of life and longevity.
                   </p>
                 </div>
               </div>

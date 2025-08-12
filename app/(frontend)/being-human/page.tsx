@@ -108,157 +108,109 @@ export default function BeingHumanPage() {
                         0 0 20px #ffffff`,
               }}
             >
-              Co-Creating a Better Future
+              Consciously Creating a Better World
             </h2>
             <div className="flex items-center justify-center space-x-4 text-[var(--dark-blue)]/70">
               <BookOpen className="w-5 h-5" />
-              <span>By Chintan Dave, BSc., MD</span>
+              <span>By Chintan Dave, MD</span>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Preface Section */}
+      {/* Book Description Section */}
       <section className="relative z-10 pb-20 px-4">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid lg:grid-cols-2 gap-8"
+            className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border"
+            style={{
+              background: "rgba(255, 255, 255, 0.15)",
+              borderColor: "rgba(255, 255, 255, 0.2)",
+              boxShadow: `
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1)
+              `,
+            }}
           >
-            {/* Left Card - Preface */}
-            <div
-              className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border h-fit"
-              style={{
-                background: "rgba(255, 255, 255, 0.15)",
-                borderColor: "rgba(255, 255, 255, 0.2)",
-                boxShadow: `
-                  0 8px 32px rgba(0, 0, 0, 0.1),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.1)
-                `,
-              }}
-            >
-              <h2 className="text-3xl font-bold text-[var(--dark-blue)] mb-8 text-center">
-                Preface
-              </h2>
+            <h2 className="text-3xl font-bold text-[var(--dark-blue)] mb-8 text-center">
+              What does the future of humanity look like?
+            </h2>
 
-              <div className="space-y-6 text-[var(--dark-blue)]/90 leading-relaxed">
-                <p>
-                  The age of information and technology is ending. The age of
-                  Artificial Intelligence (AI) is approaching. Rapidly. As AI
-                  systems become increasingly powerful, able to perform
-                  exponentially complex computations, execute logical reasoning,
-                  and solve real world problems that many humans dedicate their
-                  lives to, such as cancer, heart disease, longevity, space
-                  travel, among countless others, what will the humans do? Most
-                  of our daily activities and work revolve around manual labor,
-                  logical thinking, and computation, at least for majority of
-                  the world&apos;s population. In a world where AI is orders of
-                  magnitude more effective than humans in these tasks, what will
-                  be the use of humans? Will the AI slowly assume control as it
-                  is better equipped to make the most probabilistic decisions,
-                  something that humans struggle with due to our wiring of
-                  emotions and feelings? If AI ends up running the economic
-                  system, the medical and research systems, as well as
-                  performing majority of the manual labor work, will humans
-                  become obsolete?
-                </p>
-
-                <p>
-                  Humanity&apos;s run in with an AGI (Artificial General
-                  Intelligence) is an unavoidable part of the human evolution
-                  story. What remains to be seen is how society and the future
-                  of humanity will be shaped with the emergence of super
-                  intelligent AI. Will AI view us how we view lower species,
-                  such as ants and primates, whose needs we have relegated to
-                  serve our own needs and our entertainment? Do we simply become
-                  subservient to the goals of AI? What if their goals do not
-                  align with humanity&apos;s interest? Will AI ever attain full
-                  consciousness? How will we know if AI is conscious since we
-                  cannot even agree on a universal definition or come up with a
-                  way to measure/test it? What will be the purpose of human
-                  beings in this age? How can a thriving and peaceful society be
-                  created? Can we successfully balance the strengths offered by
-                  AI with the strengths inherent in humans to create a peaceful
-                  and thriving society?
-                </p>
-
-                <p>
-                  These are some of the big questions I answer in this book. By
-                  combining scientific research in the field of AI, insights
-                  about human nature and suffering from my experience as a
-                  physician in dealing with death and disease in the Intensive
-                  Care Units (ICUs), and my lifelong dedication towards
-                  spiritual principles, I offer a vision of what future humanity
-                  can create as we learn to consciously navigate through our
-                  current phase in evolution. From research in quantum
-                  mechanics, study of consciousness, human psychology,
-                  evolutionary biology, and spirituality, we will explore
-                  underlying truths and principles that may help us create a
-                  blueprint on how to consciously guide the next step of human
-                  evolution. We will further explore what pitfalls humanity has
-                  fallen into time and time again and how we need to prepare for
-                  such pitfalls as we co-create the new artificial general
-                  intelligence (AGI).
-                </p>
-              </div>
-            </div>
-
-            {/* Right Card - 4 Main Theses */}
-            <div
-              className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border"
-              style={{
-                background: "rgba(255, 255, 255, 0.15)",
-                borderColor: "rgba(255, 255, 255, 0.2)",
-                boxShadow: `
-                  0 8px 32px rgba(0, 0, 0, 0.1),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.1)
-                `,
-              }}
-            >
-              <h2 className="text-3xl font-bold text-[var(--dark-blue)] mb-8 text-center">
-                4 Main Theses
-              </h2>
-              <p className="text-lg text-[var(--dark-blue)]/70 mb-8 text-center">
-                Exploring consciousness, evolution, and the future of humanity
+            <div className="space-y-6 text-[var(--dark-blue)]/90 leading-relaxed text-lg">
+              <p>
+                Artificial Intelligence (AI) isn&apos;t coming. It&apos;s
+                already here. As AI systems outperform humans at logic,
+                prediction, and labor, the question is no longer &quot;What can
+                AI do?&quot; but &quot;What are humans for?&quot;
               </p>
 
-              <div className="space-y-6">
-                {mainTheses.map((thesis, index) => {
-                  const Icon = thesis.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                      className="backdrop-blur-2xl rounded-2xl p-6 shadow-lg border"
-                      style={{
-                        background: "rgba(255, 255, 255, 0.1)",
-                        borderColor: "rgba(255, 255, 255, 0.15)",
-                        boxShadow: `
-                          0 4px 16px rgba(0, 0, 0, 0.05),
-                          inset 0 1px 0 rgba(255, 255, 255, 0.1)
-                        `,
-                      }}
-                    >
-                      <div className="flex items-center space-x-4 mb-4">
-                        <div className="p-2 bg-[var(--accent-blue)]/20 rounded-full">
-                          <Icon className="w-6 h-6 text-[var(--accent-blue)]" />
-                        </div>
-                        <h3 className="text-lg font-bold text-[var(--dark-blue)]">
-                          {thesis.title}
-                        </h3>
-                      </div>
+              <p>
+                This book provides thought-provoking questions and practical
+                answers. Dr. Chintan Dave, a dual-board certified ICU physician
+                and AI founder, writes from the front lines of life-and-death
+                medicine and real-world AI deployment. He tackles the hard
+                realities head-on: If AI runs our labs, hospitals, and
+                economies, how do people keep purpose, power, and dignity? What
+                if AI&apos;s goals drift from humanity&apos;s collective goals?
+                Could it become conscious? How would we know when we can&apos;t
+                even agree on a definition for consciousness?
+              </p>
 
-                      <p className="text-[var(--dark-blue)]/90 leading-relaxed text-sm">
-                        {thesis.description}
-                      </p>
-                    </motion.div>
-                  );
-                })}
-              </div>
+              <p>This book offers four distinct ideas:</p>
+
+              <ul className="space-y-4 ml-6">
+                <li className="flex items-start space-x-3">
+                  <span className="text-[var(--accent-blue)] font-bold">•</span>
+                  <span>
+                    A moral rule for AI development: assume AI could be
+                    conscious and apply the Golden Rule of religions to what we
+                    build.
+                  </span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <span className="text-[var(--accent-blue)] font-bold">•</span>
+                  <span>
+                    A roadmap for the next stage of human evolution: conscious
+                    selection; not natural selection.
+                  </span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <span className="text-[var(--accent-blue)] font-bold">•</span>
+                  <span>
+                    A unified, testable theory of consciousness that bridges
+                    neuroscience, quantum theories, and ancient spiritual
+                    wisdom.
+                  </span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <span className="text-[var(--accent-blue)] font-bold">•</span>
+                  <span>
+                    A radical approach to building an Artificial
+                    Superintelligence (ASI) that prioritizes human values of
+                    love, freedom, and dignity over raw speed and performance.
+                  </span>
+                </li>
+              </ul>
+
+              <p>
+                You&apos;ll learn how to measure what truly matters, why early
+                signs of AI consciousness will likely be missed, how we can
+                prevent becoming obsolete, and how to design systems that scale
+                compassion alongside computation. Dr. Dave maps a path beyond
+                fear and asserts an unapologetically hopeful message: with
+                values-based governance and conscious growth, both of ourselves
+                and our systems, the next millennia can be radically more
+                peaceful and prosperous.
+              </p>
+
+              <p>
+                Urgent, actionable, and deeply human, the book is a field guide
+                for anyone who refuses to be made obsolete- and chooses,
+                instead, to evolve.
+              </p>
             </div>
           </motion.div>
         </div>
@@ -312,11 +264,11 @@ export default function BeingHumanPage() {
                       Price
                     </span>
                     <span className="text-2xl font-bold text-[var(--accent-blue)]">
-                      C$20.00
+                      $25.00
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  {/* <div className="flex items-center justify-between">
                     <span className="text-lg font-semibold text-[var(--dark-blue)]">
                       Quantity
                     </span>
@@ -337,7 +289,7 @@ export default function BeingHumanPage() {
                         +
                       </button>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="flex items-center space-x-2 text-[var(--dark-blue)]/70">
                     <Clock className="w-4 h-4" />
