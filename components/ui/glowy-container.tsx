@@ -7,7 +7,11 @@ const DEFAULT_PARTICLE_COUNT = 8;
 const DEFAULT_GLOW_COLOR = "49, 130, 206"; // Your blue theme color
 const MOBILE_BREAKPOINT = 768;
 
-const createParticleElement = (x: number, y: number, color = DEFAULT_GLOW_COLOR) => {
+const createParticleElement = (
+  x: number,
+  y: number,
+  color = DEFAULT_GLOW_COLOR
+) => {
   const el = document.createElement("div");
   el.className = "particle";
   el.style.cssText = `
@@ -229,8 +233,15 @@ const GlowyContainer = ({
         });
       }
 
-      if (borderGlow) {
-        const distance = Math.hypot(x - centerX, y - centerY);
+            if (borderGlow) {
+        const rect = element.getBoundingClientRect();
+        const relativeX = ((e.clientX - rect.left) / rect.width) * 100;
+        const relativeY = ((e.clientY - rect.top) / rect.height) * 100;
+        
+        // Calculate distance from center for intensity
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const distance = Math.hypot(e.clientX - rect.left - centerX, e.clientY - rect.top - centerY);
         const maxDistance = Math.hypot(centerX, centerY);
         const glowIntensity = Math.max(0, 1 - distance / maxDistance);
         
@@ -329,18 +340,19 @@ const GlowyContainer = ({
             content: '';
             position: absolute;
             inset: 0;
-            padding: 2px;
+            padding: 3px;
             background: radial-gradient(var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-                rgba(${glowColor}, calc(var(--glow-intensity) * 0.8)) 0%,
-                rgba(${glowColor}, calc(var(--glow-intensity) * 0.4)) 30%,
-                transparent 60%);
+                rgba(${glowColor}, calc(var(--glow-intensity) * 1.2)) 0%,
+                rgba(${glowColor}, calc(var(--glow-intensity) * 0.8)) 20%,
+                rgba(${glowColor}, calc(var(--glow-intensity) * 0.4)) 40%,
+                transparent 70%);
             border-radius: inherit;
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask-composite: subtract;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             pointer-events: none;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease;
             z-index: 1;
           }
           
@@ -349,7 +361,7 @@ const GlowyContainer = ({
           }
           
           .glowy-container--border-glow:hover {
-            box-shadow: 0 4px 20px rgba(49, 130, 206, 0.2), 0 0 30px rgba(${glowColor}, 0.15);
+            box-shadow: 0 4px 20px rgba(49, 130, 206, 0.3), 0 0 40px rgba(${glowColor}, 0.2);
           }
           
           .particle::before {
@@ -368,15 +380,17 @@ const GlowyContainer = ({
       <div
         ref={containerRef}
         className={`glowy-container ${borderGlow ? "glowy-container--border-glow" : ""} ${className}`}
-        style={{
-          ...style,
-          position: "relative",
-          overflow: "hidden",
-          "--glow-x": "50%",
-          "--glow-y": "50%",
-          "--glow-intensity": "0",
-          "--glow-radius": "200px",
-        } as React.CSSProperties}
+        style={
+          {
+            ...style,
+            position: "relative",
+            overflow: "hidden",
+            "--glow-x": "50%",
+            "--glow-y": "50%",
+            "--glow-intensity": "0",
+            "--glow-radius": "200px",
+          } as React.CSSProperties
+        }
       >
         {children}
       </div>
