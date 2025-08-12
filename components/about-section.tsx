@@ -89,11 +89,27 @@ export const AboutSection: React.FC = () => {
                     <ImageCarousel
                       images={[
                         {
-                          src: "/image.png",
-                          alt: "Dr. Chintan Dave - Professional Headshot",
+                          src: "/drdave2.avif",
+                          alt: "Dr. Chintan Dave - Medical Practice",
                         },
                         {
-                          src: "/drdave2.avif",
+                          src: "/about_image1.png",
+                          alt: "Dr. Chintan Dave - Medical Practice",
+                        },
+                        {
+                          src: "/about_image2.png",
+                          alt: "Dr. Chintan Dave - Medical Practice",
+                        },
+                        {
+                          src: "/about_image3.png",
+                          alt: "Dr. Chintan Dave - Medical Practice",
+                        },
+                        {
+                          src: "/about_image4.png",
+                          alt: "Dr. Chintan Dave - Medical Practice",
+                        },
+                        {
+                          src: "/about_image5.png",
                           alt: "Dr. Chintan Dave - Medical Practice",
                         },
                       ]}
