@@ -15,6 +15,7 @@ import {
 import { WavyBackground } from "@/components/ui/wavy-background";
 import { FloatingNavbar } from "@/components/floating-navbar";
 import { Footer } from "@/components/footer";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export default function CredentialsPage() {
   const [activeSection, setActiveSection] = useState("education");

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { config } from "@/lib/config";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 interface BlogCardProps {
   post: any;
@@ -37,6 +38,15 @@ export default function BlogCard({ post, index }: BlogCardProps) {
             `,
           }}
         >
+          <GlowingEffect
+            spread={40}
+            glow={true}
+            disabled={false}
+            proximity={64}
+            inactiveZone={0.01}
+            borderWidth={2}
+            variant="default"
+          />
           {post.featuredImage && (
             <div className="mb-6 rounded-2xl overflow-hidden">
               <img

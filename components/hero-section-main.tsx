@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 import { Suspense, useRef } from "react";
 import { TypewriterText } from "./typewriter-text";
 import Image from "next/image";
+import ShinyText from "@/components/ui/shiny-text";
+import GradientText from "./ui/gradient-text";
 
 // Dynamically import the particles component
 const HeroParticles = dynamic(() => import("./hero-particles"), {
@@ -80,20 +82,7 @@ export function HeroSectionMain() {
               transition={{ duration: 1, ease: [0.4, 0.8, 0.2, 1] }}
               className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 leading-tight"
             >
-              <span
-                className="block"
-                style={{
-                  color: "var(--dark-blue)",
-                  textShadow: `
-                    2px 2px 0px #3182ce,
-                4px 4px 0px #38b2ac,
-                6px 6px 15px #38b2ac
-                  `,
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                Dr. Chintan Dave
-              </span>
+              <ShinyText text="Dr. Chintan Dave" speed={5} className="block" />
             </motion.h1>
 
             {/* Typewriter Text */}
