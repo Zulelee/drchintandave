@@ -50,14 +50,11 @@ export const AboutSection: React.FC = () => {
                   style={{ color: "var(--text-dark)" }}
                 >
                   <p>
-                    I&apos;m a{" "}
-                    <strong>
-                      dual-certified Internal Medicine and Critical Care
-                      Physician
-                    </strong>{" "}
-                    with expertise in medical research, AI, and teaching. I went
-                    into Medicine wanting to serve others, and help people
-                    through the darkest and toughest times of their lives.
+                    I&apos;m a dual-certified Internal Medicine and Critical
+                    Care Physician with expertise in medical research, AI, and
+                    teaching. I went into Medicine wanting to serve others, and
+                    help people through the darkest and toughest times of their
+                    lives.
                   </p>
 
                   <p>

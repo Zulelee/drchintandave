@@ -16,6 +16,7 @@ import { WavyBackground } from "@/components/ui/wavy-background";
 import { FloatingNavbar } from "@/components/floating-navbar";
 import { Footer } from "@/components/footer";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import ShinyText from "@/components/ui/shiny-text";
 
 export default function CredentialsPage() {
   const [activeSection, setActiveSection] = useState("education");
@@ -354,18 +355,8 @@ export default function CredentialsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
-              style={{
-                color: "var(--dark-blue)",
-                textShadow: `
-                  2px 2px 0px #3182ce,
-                  4px 4px 0px #38b2ac,
-                  6px 6px 15px #38b2ac
-                `,
-              }}
-            >
-              Credentials
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+              <ShinyText text="Credentials" speed={5} className="block" />
             </h1>
 
             <div>

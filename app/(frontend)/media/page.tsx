@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer";
 import { Calendar, User, Tag, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import BlogCard from "./blog-card";
+import ShinyText from "@/components/ui/shiny-text";
 
 export default async function MediaPage() {
   let posts: any[] = [];
@@ -65,18 +66,8 @@ export default async function MediaPage() {
       <section className="relative z-10 pb-12 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
-              style={{
-                color: "var(--dark-blue)",
-                textShadow: `
-                  2px 2px 0px #3182ce,
-                  4px 4px 0px #38b2ac,
-                  6px 6px 15px #38b2ac
-                `,
-              }}
-            >
-              Media & Blog
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+              <ShinyText text="Media & Blog" speed={5} className="block" />
             </h1>
           </div>
         </div>

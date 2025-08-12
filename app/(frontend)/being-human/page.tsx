@@ -18,6 +18,7 @@ import { WavyBackground } from "@/components/ui/wavy-background";
 import { FloatingNavbar } from "@/components/floating-navbar";
 import { Footer } from "@/components/footer";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import ShinyText from "@/components/ui/shiny-text";
 
 export default function BeingHumanPage() {
   const [quantity, setQuantity] = useState(1);
@@ -89,18 +90,12 @@ export default function BeingHumanPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
-              style={{
-                color: "var(--dark-blue)",
-                textShadow: `
-                  2px 2px 0px #3182ce,
-                  4px 4px 0px #38b2ac,
-                  6px 6px 15px #38b2ac
-                `,
-              }}
-            >
-              Being Human in the Age of AI
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+              <ShinyText
+                text="Being Human in the Age of AI"
+                speed={5}
+                className="block"
+              />
             </h1>
             <h2
               className="text-2xl sm:text-3xl font-semibold text-[var(--accent-blue)] mb-6"
