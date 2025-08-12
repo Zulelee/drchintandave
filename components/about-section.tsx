@@ -4,6 +4,7 @@ import React, { Suspense } from "react";
 import Image from "next/image";
 import { ImageCarousel } from "./image-carousel";
 import { motion } from "framer-motion";
+import GlowyContainer from "@/components/ui/glowy-container";
 
 export const AboutSection: React.FC = () => {
   return (
@@ -15,17 +16,24 @@ export const AboutSection: React.FC = () => {
       >
         {/* Glassmorphic Container */}
         <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className="backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16 shadow-2xl border"
-            style={{
-              background: "rgba(255, 255, 255, 0.1)",
-              borderColor: "rgba(255, 255, 255, 0.2)",
-              boxShadow: `
+          <GlowyContainer
+            enableTilt={true}
+            enableMagnetism={true}
+            clickEffect={true}
+            borderGlow={true}
+            particleCount={8}
+          >
+            <div
+              className="backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16 shadow-2xl border h-full"
+              style={{
+                background: "rgba(255, 255, 255, 0.1)",
+                borderColor: "rgba(255, 255, 255, 0.2)",
+                boxShadow: `
               0 8px 32px rgba(0, 0, 0, 0.1),
               inset 0 1px 0 rgba(255, 255, 255, 0.1)
             `,
-            }}
-          >
+              }}
+            >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Text Content */}
               <div className="space-y-6 lg:space-y-8">
@@ -193,6 +201,7 @@ export const AboutSection: React.FC = () => {
               </div>
             </motion.div>
           </div>
+          </GlowyContainer>
         </div>
       </section>
     </>

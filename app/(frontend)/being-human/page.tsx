@@ -17,6 +17,7 @@ import {
 import { WavyBackground } from "@/components/ui/wavy-background";
 import { FloatingNavbar } from "@/components/floating-navbar";
 import { Footer } from "@/components/footer";
+import GlowyContainer from "@/components/ui/glowy-container";
 
 export default function BeingHumanPage() {
   const [quantity, setQuantity] = useState(1);
@@ -121,20 +122,27 @@ export default function BeingHumanPage() {
       {/* Book Description Section */}
       <section className="relative z-10 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border"
-            style={{
-              background: "rgba(255, 255, 255, 0.15)",
-              borderColor: "rgba(255, 255, 255, 0.2)",
-              boxShadow: `
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1)
-              `,
-            }}
+          <GlowyContainer
+            enableTilt={true}
+            enableMagnetism={true}
+            clickEffect={true}
+            borderGlow={true}
+            particleCount={6}
           >
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border h-full"
+              style={{
+                background: "rgba(255, 255, 255, 0.15)",
+                borderColor: "rgba(255, 255, 255, 0.2)",
+                boxShadow: `
+                  0 8px 32px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                `,
+              }}
+            >
             <h2 className="text-3xl font-bold text-[var(--dark-blue)] mb-8 text-center">
               What does the future of humanity look like?
             </h2>
@@ -213,26 +221,34 @@ export default function BeingHumanPage() {
               </p>
             </div>
           </motion.div>
+          </GlowyContainer>
         </div>
       </section>
 
       {/* Book Preview Card */}
       <section className="relative z-10 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border max-w-4xl mx-auto"
-            style={{
-              background: "rgba(255, 255, 255, 0.15)",
-              borderColor: "rgba(255, 255, 255, 0.2)",
-              boxShadow: `
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1)
-              `,
-            }}
+          <GlowyContainer
+            enableTilt={true}
+            enableMagnetism={true}
+            clickEffect={true}
+            borderGlow={true}
+            particleCount={4}
           >
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 shadow-2xl border max-w-4xl mx-auto h-full"
+              style={{
+                background: "rgba(255, 255, 255, 0.15)",
+                borderColor: "rgba(255, 255, 255, 0.2)",
+                boxShadow: `
+                  0 8px 32px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                `,
+              }}
+            >
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               {/* Book Cover Placeholder */}
               <div className="text-center">
@@ -318,6 +334,7 @@ export default function BeingHumanPage() {
               </div>
             </div>
           </motion.div>
+          </GlowyContainer>
         </div>
       </section>
 

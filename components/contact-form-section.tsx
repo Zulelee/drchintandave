@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
+import GlowyContainer from "@/components/ui/glowy-container";
 
 export const ContactFormSection = () => {
   const [formData, setFormData] = useState({
@@ -76,17 +77,24 @@ export const ContactFormSection = () => {
       className="relative w-full flex items-center justify-center overflow-hidden bg-transparent py-20 px-4"
     >
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl border"
-          style={{
-            background: "rgba(255, 255, 255, 0.1)",
-            borderColor: "rgba(255, 255, 255, 0.2)",
-            boxShadow: `
-              0 8px 32px rgba(0, 0, 0, 0.1),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1)
-            `,
-          }}
+        <GlowyContainer
+          enableTilt={true}
+          enableMagnetism={true}
+          clickEffect={true}
+          borderGlow={true}
+          particleCount={6}
         >
+          <div
+            className="backdrop-blur-2xl rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl border h-full"
+            style={{
+              background: "rgba(255, 255, 255, 0.1)",
+              borderColor: "rgba(255, 255, 255, 0.2)",
+              boxShadow: `
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1)
+              `,
+            }}
+          >
           <h2
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 leading-tight text-center"
             style={{
@@ -309,6 +317,7 @@ export const ContactFormSection = () => {
             </form>
           )}
         </div>
+        </GlowyContainer>
       </div>
     </section>
   );
