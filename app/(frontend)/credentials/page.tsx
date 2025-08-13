@@ -59,8 +59,11 @@ export default function CredentialsPage() {
       organization: "Abrazo Arizona Heart Hospital",
       role: "Intensivist",
       location: "Cardiovascular Intensive Care Unit",
-      description:
-        "Managing cardiac surgery patients and critically-ill cardiac and med/surg patients, Initiating and managing ECMO (extracorporeal membrane oxygenation) and Mechanical Circulatory Support (MCS), Teaching rotating residents",
+      description: [
+        "Managing cardiac surgery patients and critically-ill cardiac and med/surg patients",
+        "Initiating and managing ECMO (extracorporeal membrane oxygenation) and Mechanical Circulatory Support (MCS)",
+        "Teaching rotating residents",
+      ],
       icon: "❤️",
     },
     {
@@ -68,8 +71,11 @@ export default function CredentialsPage() {
       organization: "BrainX AI",
       role: "Consultant and Researcher",
       location: "AI Solutions",
-      description:
-        "Consulting on medical AI solutions, Creation of educational materials, Podcast Host",
+      description: [
+        "Consulting on medical AI solutions",
+        "Creation of educational materials",
+        "Podcast Host",
+      ],
       icon: "🧠",
     },
     {
@@ -77,8 +83,11 @@ export default function CredentialsPage() {
       organization: "DeepBreathe",
       role: "Clinical Lead",
       location: "Research and Strategic Development",
-      description:
-        "Medical AI development and testing, Clinical application and research, Strategic and research collaboration",
+      description: [
+        "Medical AI development and testing",
+        "Clinical application and research",
+        "Strategic and research collaboration",
+      ],
       icon: "🤖",
     },
     {
@@ -86,8 +95,10 @@ export default function CredentialsPage() {
       organization: "Community of Biotechnology",
       role: "Board of Advisors and Speaker",
       location: "Global Health",
-      description:
-        "Mentorship of upcoming biotech students/companies, Education and speaking on crucial epidemiology and medical issues in developing countries",
+      description: [
+        "Mentorship of upcoming biotech students/companies",
+        "Education and speaking on crucial epidemiology and medical issues in developing countries",
+      ],
       icon: "🌍",
     },
     {
@@ -95,8 +106,11 @@ export default function CredentialsPage() {
       organization: "Professional Association of Residents of Ontario",
       role: "Elected Member",
       location: "Healthcare Advocacy",
-      description:
-        "Contract negotiations with PARO-CAHO, Arbitrating contract conflicts, Led local and provincial meetings",
+      description: [
+        "Contract negotiations with PARO-CAHO",
+        "Arbitrating contract conflicts",
+        "Led local and provincial meetings",
+      ],
       icon: "⚖️",
     },
     {
@@ -104,8 +118,11 @@ export default function CredentialsPage() {
       organization: "Ottawa Internal Medicine Postgraduate Program",
       role: "Chief Resident",
       location: "Medical Education",
-      description:
-        "Daily teaching sessions, Call scheduling, Organizing social and educational initiatives",
+      description: [
+        "Daily teaching sessions",
+        "Call scheduling",
+        "Organizing social and educational initiatives",
+      ],
       icon: "👨‍⚕️",
     },
     {
@@ -113,8 +130,10 @@ export default function CredentialsPage() {
       organization: "Pamoja Tunaweza Women's Centre, Tanzania",
       role: "Field Physician and Educator",
       location: "International Healthcare",
-      description:
-        "Medical care in remote Masaai villages, Developed and taught basic health curriculum through lectures to locals and medical students",
+      description: [
+        "Medical care in remote Masaai villages",
+        "Developed and taught basic health curriculum through lectures to locals and medical students",
+      ],
       icon: "🏥",
     },
     {
@@ -122,8 +141,11 @@ export default function CredentialsPage() {
       organization: "Initiative for Global Health",
       role: "Co-Founder and President",
       location: "Non-Profit Leadership",
-      description:
-        "Created NGO from university student group, Started several initiatives in developing countries to achieve UN Sustainable Development Goals (SDGs), Partnerships with WHO and grassroots NGOs",
+      description: [
+        "Created NGO from university student group",
+        "Started several initiatives in developing countries to achieve UN Sustainable Development Goals (SDGs)",
+        "Partnerships with WHO and grassroots NGOs",
+      ],
       icon: "🌐",
     },
   ];
@@ -492,9 +514,19 @@ export default function CredentialsPage() {
                           <p className="text-lg font-medium text-[var(--accent-blue)] mb-2 drop-shadow-sm">
                             {item.role}
                           </p>
-                          <p className="text-[var(--dark-blue)]/90 leading-relaxed drop-shadow-sm">
-                            {item.description}
-                          </p>
+                          <ul className="text-[var(--dark-blue)]/90 leading-relaxed drop-shadow-sm space-y-1">
+                            {item.description.map((bullet, bulletIndex) => (
+                              <li
+                                key={bulletIndex}
+                                className="flex items-start"
+                              >
+                                <span className="text-[var(--accent-blue)] mr-2 mt-1">
+                                  •
+                                </span>
+                                <span>{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
                     </motion.div>

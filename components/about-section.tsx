@@ -51,10 +51,10 @@ export const AboutSection: React.FC = () => {
                 >
                   <p>
                     I&apos;m a dual-certified Internal Medicine and Critical
-                    Care Physician with expertise in medical research, AI, and
-                    teaching. I went into Medicine wanting to serve others, and
-                    help people through the darkest and toughest times of their
-                    lives.
+                    Care Physician with expertise in medical physiology,
+                    research, AI, and teaching. I went into Medicine wanting to
+                    serve others, and help people through the darkest and
+                    toughest times of their lives.
                   </p>
 
                   <p>
@@ -63,7 +63,8 @@ export const AboutSection: React.FC = () => {
                     meant to do more and help more people. This is when I
                     started sharing my stories and lessons through social media.
                     I have been grateful to create an engaging community of
-                    healthcare professionals spreading curiosity and hope.
+                    followers (mainly healthcare professionals) built around
+                    learning, curiosity and hope.
                   </p>
 
                   <p>

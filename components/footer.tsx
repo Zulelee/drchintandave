@@ -14,8 +14,8 @@ export const Footer = () => {
               Dr. Chintan Dave
             </h3>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Healthcare AI consultant, thought leader, and advocate for
-              human-centered technology in medicine.
+              Doctor, AI Founder, Educator, and Advocate for Human-Centered
+              Technology in Medicine.
             </p>
             <div className="flex items-center space-x-4">
               <a

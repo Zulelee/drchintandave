@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   BookOpen,
   Brain,
@@ -25,7 +26,7 @@ export default function BeingHumanPage() {
 
   const handlePreOrder = () => {
     // Replace with your actual Stripe payment link
-    const stripePaymentLink = "https://buy.stripe.com/your-payment-link";
+    const stripePaymentLink = process.env.NEXT_PUBLIC_STRIPE_LINK;
     window.open(stripePaymentLink, "_blank");
   };
 
@@ -251,12 +252,17 @@ export default function BeingHumanPage() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               {/* Book Cover Placeholder */}
               <div className="text-center">
-                <div className="w-64 h-80 bg-gradient-to-br from-[var(--dark-blue)] to-[var(--accent-blue)] rounded-lg shadow-xl mx-auto flex items-center justify-center">
-                  <BookOpen className="w-16 h-16 text-white" />
+                <div className="w-64 h-80 mx-auto p-3 bg-[var(--dark-blue)] rounded-lg shadow-2xl transition-all duration-500 ease-out hover:scale-105 hover:shadow-3xl ">
+                  <div className="w-full h-full overflow-hidden rounded-lg transition-transform duration-500">
+                    <Image
+                      src="/book_cover.png"
+                      alt="Being Human in the Age of AI - Book Cover"
+                      width={256}
+                      height={320}
+                      className="w-full h-full object-fill "
+                    />
+                  </div>
                 </div>
-                <p className="text-sm text-[var(--dark-blue)]/70 mt-4">
-                  Book Cover Coming Soon
-                </p>
               </div>
 
               {/* Pre-order Details */}

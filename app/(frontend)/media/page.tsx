@@ -67,7 +67,7 @@ export default async function MediaPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-              <ShinyText text="Media & Blog" speed={5} className="block" />
+              <ShinyText text="Media" speed={5} className="block" />
             </h1>
           </div>
         </div>
