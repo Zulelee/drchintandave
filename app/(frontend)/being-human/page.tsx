@@ -30,33 +30,6 @@ export default function BeingHumanPage() {
     window.open(stripePaymentLink, "_blank");
   };
 
-  const mainTheses = [
-    {
-      icon: Brain,
-      title: "New Theory on Consciousness",
-      description:
-        "Combines ancient spiritual wisdom, current neuroscience and quantum mechanics theories to arrive at a comprehensive theory on consciousness. Includes scientific basis for the theory as well as a reproducible experiment that can be done to confirm the theory.",
-    },
-    {
-      icon: Heart,
-      title: "Conscious Evolution",
-      description:
-        "Humans have the unique ability to choose to expand their consciousness, and experience higher levels, which simply represents having a broader perspective. Assume AI is conscious and treat it accordingly. Humans should apply the Golden rule of religions: treat others how you wish to be treated.",
-    },
-    {
-      icon: Lightbulb,
-      title: "AI Consciousness Recognition",
-      description:
-        "We discuss how AI consciousness will likely emerge, and why humans will probably miss/ignore it. Risks and benefits of not recognizing or defining AI consciousness. I propose a new paradigm for how humans should interact with AI and how to approach development of AGI so that it benefits humanity.",
-    },
-    {
-      icon: Shield,
-      title: "1000 Years of Peace",
-      description:
-        "1000 years of peace is possible, if we can learn to consciously evolve ourselves and responsibly create AI.",
-    },
-  ];
-
   return (
     <main className="relative min-h-screen">
       <FloatingNavbar />
@@ -252,14 +225,14 @@ export default function BeingHumanPage() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               {/* Book Cover Placeholder */}
               <div className="text-center">
-                <div className="w-64 h-80 mx-auto p-3 bg-[var(--dark-blue)] rounded-lg shadow-2xl transition-all duration-500 ease-out hover:scale-105 hover:shadow-3xl ">
+                <div className="w-52 h-72 mx-auto p-3 bg-transparent rounded-lg shadow-2xl transition-all duration-500 ease-out hover:scale-105 hover:shadow-3xl">
                   <div className="w-full h-full overflow-hidden rounded-lg transition-transform duration-500">
                     <Image
                       src="/book_cover.png"
                       alt="Being Human in the Age of AI - Book Cover"
                       width={256}
-                      height={320}
-                      className="w-full h-full object-fill "
+                      height={288}
+                      className="w-full h-full"
                     />
                   </div>
                 </div>
@@ -274,7 +247,7 @@ export default function BeingHumanPage() {
                   <div className="flex items-center space-x-2 mb-4">
                     <Star className="w-5 h-5 text-yellow-400" />
                     <span className="text-[var(--dark-blue)]/70">
-                      Expected release by end of 2024
+                      Expected release by September 2025
                     </span>
                   </div>
                 </div>
@@ -312,12 +285,12 @@ export default function BeingHumanPage() {
                     </div>
                   </div> */}
 
-                  <div className="flex items-center space-x-2 text-[var(--dark-blue)]/70">
+                  {/* <div className="flex items-center space-x-2 text-[var(--dark-blue)]/70">
                     <Clock className="w-4 h-4" />
                     <span className="text-sm">
                       Expected release by end of 2024
                     </span>
-                  </div>
+                  </div> */}
                 </div>
 
                 <motion.button

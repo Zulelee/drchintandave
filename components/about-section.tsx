@@ -166,6 +166,7 @@ export const AboutSection: React.FC = () => {
                     { name: "The Rounds", logo: "/logos/the-rounds.png" },
                     { name: "Databutton", logo: "/logos/databutton.png" },
                     { name: "PARO", logo: "/logos/paro.png" },
+                    { name: "Beyond", logo: "/logos/beyond.jpg" },
                     // Duplicate for seamless loop
                     { name: "KPMG", logo: "/logos/kpmg.png" },
                     { name: "Al Jazeera", logo: "/logos/al-jazeera.png" },
@@ -174,6 +175,7 @@ export const AboutSection: React.FC = () => {
                     { name: "The Rounds", logo: "/logos/the-rounds.png" },
                     { name: "Databutton", logo: "/logos/databutton.png" },
                     { name: "PARO", logo: "/logos/paro.png" },
+                    { name: "Beyond", logo: "/logos/beyond.jpg" },
                   ].map((company, index) => (
                     <motion.div
                       key={`${company.name}-${index}`}
