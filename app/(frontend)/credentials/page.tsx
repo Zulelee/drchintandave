@@ -211,6 +211,14 @@ export default function CredentialsPage() {
 
   const publications = [
     {
+      title: "Artificial Intelligence in Healthcare: 2024 Year in Review",
+      authors:
+        "Raghav Awasthi, Sai Prasad Ramachandran, Shreya Mishra, Dave C, et al.",
+      journal: "medRxiv",
+      year: "2025",
+      doi: "https://doi.org/10.1101/2025.02.26.25322978",
+    },
+    {
       title:
         "Automated real-time detection of lung sliding using artificial intelligence",
       authors: "Clausdorff H, Prager R, Smith D, Wu D, Dave C, et al.",
@@ -218,6 +226,7 @@ export default function CredentialsPage() {
       year: "2024",
       doi: "https://doi.org/10.1016/j.chest.2024.02.011",
     },
+
     {
       title:
         "Efficacy and safety of umbilical cord-derived mesenchymal stromal cell therapy in preclinical models of sepsis: A systematic review and meta-analysis",
