@@ -3,12 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email } = body;
+    const { name, email, country } = body;
 
     // Validate required fields
-    if (!name || !email) {
+    if (!name || !email || !country) {
       return NextResponse.json(
-        { error: "Name and email are required" },
+        { error: "Name, email, and country are required" },
         { status: 400 }
       );
     }
@@ -17,6 +17,7 @@ export async function POST(request: NextRequest) {
     const submissionData = {
       name,
       email,
+      country,
       timestamp: new Date().toISOString(),
     };
 

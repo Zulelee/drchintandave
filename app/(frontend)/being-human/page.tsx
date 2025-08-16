@@ -27,10 +27,12 @@ export default function BeingHumanPage() {
   const [formData, setFormData] = useState<{
     name: string;
     email: string;
+    country: string;
     timestamp: string;
   }>({
     name: "",
     email: "",
+    country: "",
     timestamp: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,6 +56,7 @@ export default function BeingHumanPage() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          country: formData.country,
         }),
       });
 
@@ -61,7 +64,7 @@ export default function BeingHumanPage() {
 
       if (response.ok && result.success) {
         setSubmitStatus("success");
-        setFormData({ name: "", email: "", timestamp: "" });
+        setFormData({ name: "", email: "", country: "", timestamp: "" });
         setTimeout(() => setShowForm(false), 2000);
       } else {
         setSubmitStatus("error");
@@ -434,6 +437,25 @@ export default function BeingHumanPage() {
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--accent-blue)] focus:border-transparent transition-all"
                   placeholder="Enter your email address"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="country"
+                  className="block text-sm font-medium text-[var(--dark-blue)] mb-2"
+                >
+                  Country *
+                </label>
+                <input
+                  type="text"
+                  id="country"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--accent-blue)] focus:border-transparent transition-all"
+                  placeholder="Enter your country"
                 />
               </div>
 
