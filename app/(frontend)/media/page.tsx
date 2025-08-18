@@ -7,6 +7,11 @@ import { Calendar, User, Tag, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import BlogCard from "./blog-card";
 import ShinyText from "@/components/ui/shiny-text";
+import { Metadata } from "next";
+
+// Disable caching for this page
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function MediaPage() {
   let posts: any[] = [];
