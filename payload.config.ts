@@ -39,7 +39,7 @@ export default buildConfig({
       // Token provided by Vercel once Blob storage is added to your Vercel project
       token: process.env.BLOB_READ_WRITE_TOKEN,
       clientUploads: true, // Enable client uploads to bypass Vercel limits
-      addRandomSuffix: true, // Add random suffix to prevent filename conflicts
+      addRandomSuffix: false, // Add random suffix to prevent filename conflicts
     }),
   ],
 
