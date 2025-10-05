@@ -281,7 +281,7 @@ export default function BeingHumanPage() {
                 <div className="w-52 h-72 mx-auto p-3 bg-transparent rounded-lg shadow-2xl transition-all duration-500 ease-out hover:scale-105 hover:shadow-3xl">
                   <div className="w-full h-full overflow-hidden rounded-lg transition-transform duration-500">
                     <Image
-                      src="/book_cover.png"
+                      src="/book_cover_2.jpeg"
                       alt="Being Human in the Age of AI - Book Cover"
                       width={256}
                       height={288}
